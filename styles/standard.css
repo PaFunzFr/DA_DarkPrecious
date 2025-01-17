@@ -1,0 +1,11 @@
+:root {
+    --col-bg: rgba(24, 20, 20, 1);          
+    --col-main: rgba(48, 39, 38, 1);       
+    --col-secondary: rgba(91, 76, 74, 1);   
+    --col-highlight: rgba(214, 93, 96, 1); 
+    --col-accent: rgba(136, 90, 68, 1);     
+    --col-complementary: rgba(255, 140, 0, 1); 
+    --col-light-text: rgba(240, 229, 216, 1); 
+    --col-border: rgba(64, 53, 52, 1);     
+    --col-overlay: rgba(34, 30, 29, 0.8);  
+}

@@ -4,7 +4,7 @@ let database = [
         products: [
             {
             name: "Brewzilla",
-            picture: "./assets/img/brewzilla.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Brewzilla.jpeg",
             description: "Die ultimative Maschine für jede Kaffee-Herausforderung.",
             categories: ["Espresso", "Manuell", "Stahl"],
             price: 349.99,
@@ -14,7 +14,7 @@ let database = [
             },
             {
             name: "Espresso King",
-            picture: "./assets/img/espresso_king.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Espresso_King.jpeg",
             description: "Die Krönung des Espressogenusses.",
             categories: ["Espresso", "Automatisch", "Premium"],
             price: 299.99,
@@ -24,7 +24,7 @@ let database = [
             },
             {
             name: "Coffeinator Gen X",
-            picture: "./assets/img/coffeinator_gen_x.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Coffeinator_x.jpeg",
             description: "High-Tech für die ultimative Koffein-Experience.",
             categories: ["Kaffeevollautomat", "High-Tech", "Stylisch"],
             price: 499.99,
@@ -34,7 +34,7 @@ let database = [
             },
             {
             name: "Future Shot v1",
-            picture: "./assets/img/future_shot_v1.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Future_shot_1.jpeg",
             description: "Die Zukunft des Espressos beginnt hier.",
             categories: ["Espresso", "Modern", "Kompakt"],
             price: 399.99,
@@ -44,7 +44,7 @@ let database = [
             },
             {
             name: "Future Shot v2",
-            picture: "./assets/img/future_shot_v2.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Future_shot_2.jpeg",
             description: "Noch besser, noch futuristischer.",
             categories: ["Espresso", "Fortschrittlich", "Stylisch"],
             price: 449.99,
@@ -54,7 +54,7 @@ let database = [
             },
             {
             name: "Killing Sleep",
-            picture: "./assets/img/killing_sleep.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/killingsleep.jpeg",
             description: "Keine Müdigkeit mehr dank dieser kraftvollen Maschine.",
             categories: ["Espresso", "Power", "Bold"],
             price: 329.99,
@@ -64,7 +64,7 @@ let database = [
             },
             {
             name: "Bean Beast",
-            picture: "./assets/img/bean_beast.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Bean_beast.jpeg",
             description: "Der ungezähmte Meister des Kaffees.",
             categories: ["Bohnen", "Stark", "Rugged"],
             price: 279.99,
@@ -74,7 +74,7 @@ let database = [
             },
             {
             name: "Brew Blaster 3000",
-            picture: "./assets/img/brew_blaster_3000.jpg",
+            picture: "./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg",
             description: "Blastet dir den perfekten Kaffee in die Tasse.",
             categories: ["Automatisch", "Schnell", "Effizient"],
             price: 379.99,
@@ -89,7 +89,7 @@ let database = [
         products: [
             {
             name: "Midnight Mirage",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Geheimnisvoller Kaffee mit dunklen Beeren und einem Hauch von Schokolade.",
             categories: ["Fruchtig", "Dunkel", "Mystisch"],
             price: 7.50,
@@ -100,7 +100,7 @@ let database = [
             },
             {
             name: "Sunrise Serenade",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Sanfter Weckruf mit blumigen Noten und einem Hauch von Zitrus.",
             categories: ["Blumig", "Leicht", "Zitrus"],
             price: 8.75,
@@ -111,7 +111,7 @@ let database = [
             },
             {
             name: "Desert Dusk",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Warmer, nussiger Kaffee mit einer leichten Süße von Karamell.",
             categories: ["Nussig", "Karamell", "Süß"],
             price: 8.50,
@@ -122,7 +122,7 @@ let database = [
             },
             {
             name: "Velvet Volcano",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Intensiver, erdiger Kaffee mit einem rauchigen Abgang.",
             categories: ["Intensiv", "Erdig", "Rauchig"],
             price: 10.00,
@@ -133,7 +133,7 @@ let database = [
             },
             {
             name: "Cosmic Cascade",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Lebhafter Kaffee mit Noten von tropischen Früchten und einer spritzigen Säure.",
             categories: ["Tropisch", "Spritzig", "Lebhaft"],
             price: 12.50,
@@ -144,7 +144,7 @@ let database = [
             },
             {
             name: "Twilight Truffle",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Luxuriöser, schokoladiger Kaffee mit einem Hauch von Vanille.",
             categories: ["Schokoladig", "Luxuriös", "Vanille"],
             price: 9.00,
@@ -155,7 +155,7 @@ let database = [
             },
             {
             name: "Aurora Bliss",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Heller, balancierter Kaffee mit Noten von Honig und Mandeln.",
             categories: ["Balanciert", "Honig", "Mandel"],
             price: 8.25,
@@ -166,7 +166,7 @@ let database = [
             },
             {
             name: "Stardust Symphony",
-            picture: "./assets/img/03_products/",
+            picture: "./assets/img/03_products/02_coffee/",
             description: "Samtiger Kaffee mit einer subtilen Süße und Noten von roten Früchten.",
             categories: ["Samtig", "Süß", "Rote Früchte"],
             price: 7.75,
