@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 14px 0;
 }
 
 .h-line-title {
@@ -64,7 +65,7 @@
 
 .logo-center {
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;

@@ -29,6 +29,8 @@ main {
 header {
     background-color: var(--col-bg);
     border-bottom: 2px solid var(--col-border);
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 1));
+    z-index: 99;
 }
 
 footer {
