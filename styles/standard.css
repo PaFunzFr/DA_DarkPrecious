@@ -9,3 +9,62 @@
     --col-border: rgba(64, 53, 52, 1);     
     --col-overlay: rgba(34, 30, 29, 0.8);  
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-style: normal;
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 18px;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    background-color: var(--col-main);
+}
+
+header {
+    background-color: var(--col-bg);
+    border-bottom: 2px solid var(--col-border);
+}
+
+footer {
+    background-color: var(--col-bg);
+    border-top: 2px solid var(--col-border);
+}
+
+a {
+    text-decoration: none;
+    color: var(--col-highlight);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Playfair';
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 40px;
+    margin: 0;
+    color: var(--col-light-text);
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+    line-height: 1.5;
+}
+
+.show-mobile {
+    display: none;
+}

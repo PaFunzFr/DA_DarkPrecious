@@ -1,0 +1,87 @@
+.logo-main {
+    height: 80px;
+    padding: 15px 0;
+    margin: 0;
+}
+
+.headline {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-bar {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h-line-title {
+    width: 100%;
+    height: 1px;
+    background-color: var(--col-light-text);
+}
+
+.title p {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 22px;
+    margin: 5px 0 0 0;
+    color: var(--col-accent);
+}
+
+.bg-logo {
+    display: flex;
+    position: relative;
+    height: 450px;
+}
+
+.main-bg {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bg-logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0,0,0,0));
+    z-index: 1;
+}
+
+.logo-center {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.img-logo-center {
+    border-radius: 50% 50% 20% 20%;
+    background-color: var(--col-light-text);
+    border: 14px solid var(--col-main);
+    padding: 10px;
+    max-height: 200px;
+    max-width: 200px;
+    width: 30vw;
+}
+
+@media screen and (max-width: 700px) {
+    .bg-logo {
+        height: 65vw;
+    }
+}

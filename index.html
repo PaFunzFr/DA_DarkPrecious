@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark Precious | Coffee Store</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./assets/img/00_favicon/logo.png">
 </head>
 
 <body>
     <header>
         <section class="container">
-            <a href="./index.html">
-                <img class="logo-main" src="./assets/img/01_header/logo.png" alt="picture of main logo">
-            </a>
+            <div class="headline">
+                <img class="logo-main" src="./assets/img/01_header/logo_bright.png" alt="picture of main logo">
+                <div class="title">
+                    <h1>DARK PRECIOUS</h1>
+                    <div class="h-line-title"></div>
+                    <p>BEST COFFEE FOR THOSE WHO LOVE IT</p>
+                </div>
+            </div>
             <ul class="nav-bar">
-                <li class="hide-mobile"><a href="">Produkt1</a></li>
-                <li class="hide-mobile"><a href="">Produkt2</a></li>
-                <li class="hide-mobile"><a href="">Produkt3</a></li>
+                <li class="hide-mobile"><a href="">Our Coffee</a></li>
+                <li class="hide-mobile"><a href="">Let's brew</a></li>
+                <li class="hide-mobile"><a href="">Goodies</a></li>
                 <li class="ham-menu-btn show-mobile" id="menuButton" onclick="openMenu()">
                     <div class="ham-line"></div>
                     <div class="ham-line"></div>
@@ -40,12 +45,41 @@
     </section>
 -->
     <main>
+        <div class="bg-logo">
+            <img src="./assets/img/04_main/bg-main.jpg" alt="" class="main-bg">
+            <div class="logo-center">
+                <img src="./assets/img/01_header/logo.png" alt="" class="img-logo-center">
+            </div>
+        </div>
+
         <section class="container">
         </section>
     </main>
 
     <footer>
         <section class="container">
+            <div class="footer-left">
+                <ul class="social-media-icons">
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="./assets/img/02_footer/facebook.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="./assets/img/02_footer/instagram.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/" target="_blank">
+                            <img src="./assets/img/02_footer/twitter.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-right" id="footer">
+                <p>&copy; 2025 by Patrick Frey | it's a personal library, no shop.</p>
+            </div>
         </section>
     </footer>
 </body>
