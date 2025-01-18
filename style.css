@@ -15,7 +15,6 @@
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-    list-style-type: none;
 }
 
 .title {
@@ -34,16 +33,18 @@
 .title p {
     font-family: 'Raleway';
     font-weight: 500;
-    font-size: 17px;
+    font-size: 14px;
+    letter-spacing: 1.6px;
     line-height: 22px;
     margin: 5px 0 0 0;
-    color: var(--col-accent);
+    color: var(--col-complementary);
 }
 
 .bg-logo {
     display: flex;
     position: relative;
     height: 450px;
+    border-bottom: 2px solid var(--col-border);
 }
 
 .main-bg {
@@ -65,7 +66,7 @@
 
 .logo-center {
     position: absolute;
-    top: 65%;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -81,8 +82,69 @@
     width: 30vw;
 }
 
+/* SHOP SECTION */
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--col-light-text);
+    margin: 60px 0 0 0;
+    padding: 0 15px;
+    width: 100%;
+    border-radius: 10px;
+}
+.shop-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+.shop-infos {
+    display: flex;
+    gap: 1rem;
+    margin: 0 0 15px 0;
+}
+
+.food-categories {
+    display: flex;
+}
+
+.food-categories li a{
+    background-color: transparent;
+    padding: 3px 10px;
+    border-radius: 30px;
+    color: black;
+}
+
+.food-categories li a:hover {
+    background-color: var(--col-complementary);
+}
+.search-food {
+    border-radius: 10px;
+    border: 1px solid var(--col-border);
+    resize: none;
+}
+
 @media screen and (max-width: 800px) {
     .bg-logo {
-        height: 65vw;
+        height: 300px;
+    }
+    .logo-center {
+        top: 62%;
+    }
+    .img-logo-center {
+        border: 8px solid var(--col-main);
+        padding: 5px;
+        max-height: 120px;
+        max-width: 120px;
+    }  
+}
+
+@media screen and (max-width: 600px) {
+    .bg-logo {
+        height: 230px;
+    }
+    .logo-center {
+        top: 46%;
     }
 }
