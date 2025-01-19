@@ -6,3 +6,11 @@
     height: 100%;
     padding: 0 30px;
 }
+
+.container-nomax {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 30px;
+}
