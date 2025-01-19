@@ -1,7 +1,8 @@
 .logo-main {
-    height: 80px;
-    padding: 15px 0;
-    margin: 0;
+    width: 100%;
+    height: 48px;
+    padding: 0;
+    margin-bottom: 8px;
 }
 
 .headline {
@@ -9,6 +10,7 @@
     align-items: center;
     gap: 2rem;
 }
+
 .nav-bar {
     display: flex;
     margin: 0;
@@ -20,23 +22,20 @@
 .title {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 14px 0;
 }
 
 .h-line-title {
     width: 100%;
-    height: 1.2px;
-    background-color: var(--col-secondary);
+    height: 2px;
+    background-color: rgba(91, 76, 74, 0.233);
 }
 
 .title p {
     font-family: 'Raleway';
     font-weight: 500;
     font-size: 14px;
-    letter-spacing: 1.6px;
     line-height: 22px;
-    margin: 5px 0 0 0;
+    margin: 0;
     color: var(--col-secondary);
 }
 
