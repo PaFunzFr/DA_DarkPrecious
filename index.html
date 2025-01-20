@@ -30,16 +30,7 @@
             </ul>
         </section>
     </header>
-<!--
-    <section class="nav-bar-slider hidden-top" id="slideBar">
-        <ul class="slider-menu">
-            <li><a href="">Start</a></li>
-            <li><a href="./1_recipes/recipe_2/recipe_2.html">Rezept des Tages</a></li>
-            <li><a href="./2_contact/contact.html">Kontakt</a></li>
-            <li><a href="./3_imprint/imprint.html">Impressum</a></li>
-        </ul>
-    </section>
--->
+
     <main>
         <div class="bg-logo">
             <img src="./assets/img/04_main/bg-main.gif" alt="" class="main-bg">
@@ -74,31 +65,33 @@
 
             <section class="basket-section">
                 <div class="basket-content">
-                    <h2 class="basket-title">Warenkorb</h2>
-                    <div class="deliver-btn-container">
-                        <div class="deliver-btn">
-                            <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
-                            <div class="deliver-btn-right">
-                                <h4>Lieferung</h4>
-                                <p class="delivery-info">ab 25€</p>
+                    <span class="basket-header">
+                        <h2 class="basket-title">Warenkorb</h2>
+                        <div class="deliver-btn-container">
+                            <div class="deliver-btn">
+                                <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                                <div class="deliver-btn-right">
+                                    <h4>Lieferung</h4>
+                                    <p class="delivery-info">ab 25€</p>
+                                </div>
+                            </div>
+                            <div class="deliver-btn">
+                                <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                                <div class="deliver-btn-right">
+                                    <h4>Abholung</h4>
+                                    <p class="delivery-info">ab 13:00</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="deliver-btn">
-                            <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
-                            <div class="deliver-btn-right">
-                                <h4>Abholung</h4>
-                                <p class="delivery-info">ab 13:00</p>
-                            </div>
-                        </div>
-                    </div>
+                    </span>
                     <ul class="basket-summary">
                         <li class="basket-item">
                             <div class="item-price">
-                                <h4>Produktname</h4>
-                                <p>15,45€</p>
+                                <h4>Beste Kaffemaschine 3000</h4>
+                                <p class="price-tag">15,45€</p>
                             </div>
                             <div class="item-notes-quantity">
-                                <a href="" class="add-note">Anmerkung</a>
+                                <button class="note-btn">Anmerkung</button>
                                 <div class="count-btn">
                                     <h3 class="less-btn">-</h3>
                                     <p class="current-count">4</p>
@@ -106,18 +99,20 @@
                                 </div>
                             </div>
                             <div class="item-notes">
-                                <textarea maxlength="50"></textarea>
-                                <div class="abort-note">Abbrechen</div>
-                                <div class="submit-note">Hinzfügen</div>
+                                <textarea class="item-note" maxlength="50"></textarea>
+                                <div class="note-submit-container">
+                                    <button class="note-btn">Abbrechen</button>
+                                    <button class="note-btn">Hinzfügen</button>
+                                </div>
                             </div>
                         </li>
                         <li class="basket-item">
                             <div class="item-price">
-                                <h4>Produktname</h4>
-                                <p>15,45€</p>
+                                <h4>Beste Kaffemaschine 3000</h4>
+                                <p class="price-tag">15,45€</p>
                             </div>
                             <div class="item-notes-quantity">
-                                <a href="" class="add-note">Anmerkung</a>
+                                <button class="note-btn">Anmerkung</button>
                                 <div class="count-btn">
                                     <h3 class="less-btn">-</h3>
                                     <p class="current-count">4</p>
@@ -125,17 +120,81 @@
                                 </div>
                             </div>
                             <div class="item-notes">
-                                <textarea maxlength="50"></textarea>
-                                <div class="abort-note">Abbrechen</div>
-                                <div class="submit-note">Hinzfügen</div>
+                                <textarea class="item-note" maxlength="50"></textarea>
+                                <div class="note-submit-container">
+                                    <button class="note-btn">Abbrechen</button>
+                                    <button class="note-btn">Hinzfügen</button>
+                                </div>
                             </div>
                         </li>
-
+                        <li class="basket-item">
+                            <div class="item-price">
+                                <h4>Beste Kaffemaschine 3000</h4>
+                                <p class="price-tag">15,45€</p>
+                            </div>
+                            <div class="item-notes-quantity">
+                                <button class="note-btn">Anmerkung</button>
+                                <div class="count-btn">
+                                    <h3 class="less-btn">-</h3>
+                                    <p class="current-count">4</p>
+                                    <h3 class="add-btn">+</h3>
+                                </div>
+                            </div>
+                            <div class="item-notes">
+                                <textarea class="item-note" maxlength="50"></textarea>
+                                <div class="note-submit-container">
+                                    <button class="note-btn">Abbrechen</button>
+                                    <button class="note-btn">Hinzfügen</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="basket-item">
+                            <div class="item-price">
+                                <h4>Beste Kaffemaschine 3000</h4>
+                                <p class="price-tag">15,45€</p>
+                            </div>
+                            <div class="item-notes-quantity">
+                                <button class="note-btn">Anmerkung</button>
+                                <div class="count-btn">
+                                    <h3 class="less-btn">-</h3>
+                                    <p class="current-count">4</p>
+                                    <h3 class="add-btn">+</h3>
+                                </div>
+                            </div>
+                            <div class="item-notes">
+                                <textarea class="item-note" maxlength="50"></textarea>
+                                <div class="note-submit-container">
+                                    <button class="note-btn">Abbrechen</button>
+                                    <button class="note-btn">Hinzfügen</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="basket-item">
+                            <div class="item-price">
+                                <h4>Beste Kaffemaschine 3000</h4>
+                                <p class="price-tag">15,45€</p>
+                            </div>
+                            <div class="item-notes-quantity">
+                                <button class="note-btn">Anmerkung</button>
+                                <div class="count-btn">
+                                    <h3 class="less-btn">-</h3>
+                                    <p class="current-count">4</p>
+                                    <h3 class="add-btn">+</h3>
+                                </div>
+                            </div>
+                            <div class="item-notes">
+                                <textarea class="item-note" maxlength="50"></textarea>
+                                <div class="note-submit-container">
+                                    <button class="note-btn">Abbrechen</button>
+                                    <button class="note-btn">Hinzfügen</button>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="basket-total">
+                <section class="basket-total">
                     <p>Gesamt: <span class="total-price"></span>���</p>
-                </div>
+                </section>
             </section>
 
         </section>
