@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Precious | Coffee Store</title>
+    <title>Kaffeekurier | Dark Precious</title>
     <link rel="stylesheet" href="./styles/assets.css">
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/fonts.css">
@@ -22,10 +22,7 @@
                 </div>
             </div>
             <ul class="nav-bar">
-                <li class="hide-mobile"><a href="">Our Coffee</a></li>
-                <li class="hide-mobile"><a href="">Let's brew</a></li>
-                <li class="hide-mobile"><a href="">Goodies</a></li>
-                <li class="ham-menu-btn show-mobile" id="menuButton" onclick="openMenu()">
+                <li class="ham-menu-btn" id="menuButton" onclick="openMenu()">
                     <div class="ham-line"></div>
                     <div class="ham-line"></div>
                     <div class="ham-line"></div>
@@ -55,15 +52,20 @@
             <div class="intro-text">
                 <div class="shop-title">
                     <h2>Dark Precious</h2>
-                    <a href="" class="about">About us</a>
+                    <img class="general-icons"src="./assets/img/03_products/info.png">
                 </div>
                 <ul class="shop-infos">
-                    <li><img class="general-icons"src="./assets/img/03_products/rating.png"><span>4,2</span> (200+)</li>
+                    <li><img class="general-icons"src="./assets/img/03_products/rating_color.png"><span>4,2</span> (200+)</li>
                     <li><img class="general-icons"src="./assets/img/03_products/min-price.png">Min. 25,00€</li>
                     <li><img class="general-icons"src="./assets/img/03_products/delivery-cost.png">3,50€</li>
                 </ul>
-                <textarea class="search-food"></textarea>
+                <div class="opening-hours">
+                    <img class="general-icons"src="./assets/img/03_products/clock-regular.svg">
+                    <p>Dieser Shop öffnet um 8:00. Bestelle jetzt und bekomme im Anschluss geliefert.</p>
+                </div>
+                <textarea class="search-food" maxlength="20"></textarea>
                 <ul class="food-categories">
+                    <li><a href="">Beliebt</a></li>
                     <li><a href="">Kaffebohnen</a></li>
                     <li><a href="">Kaffeemaschinen</a></li>
                     <li><a href="">Zubehör</a></li>
@@ -73,17 +75,71 @@
             <section class="basket-section">
                 <div class="basket-content">
                     <h2 class="basket-title">Warenkorb</h2>
-                    <ul class="basket-items">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                    <div class="deliver-btn-container">
+                        <div class="deliver-btn">
+                            <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                            <div class="deliver-btn-right">
+                                <h4>Lieferung</h4>
+                                <p class="delivery-info">ab 25€</p>
+                            </div>
+                        </div>
+                        <div class="deliver-btn">
+                            <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                            <div class="deliver-btn-right">
+                                <h4>Abholung</h4>
+                                <p class="delivery-info">ab 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="basket-summary">
+                        <li class="basket-item">
+                            <div class="item-price">
+                                <h4>Produktname</h4>
+                                <p>15,45€</p>
+                            </div>
+                            <div class="item-notes-quantity">
+                                <a href="" class="add-note">Anmerkung</a>
+                                <div class="count-btn">
+                                    <h3 class="less-btn">-</h3>
+                                    <p class="current-count">4</p>
+                                    <h3 class="add-btn">+</h3>
+                                </div>
+                            </div>
+                            <div class="item-notes">
+                                <textarea maxlength="50"></textarea>
+                                <div class="abort-note">Abbrechen</div>
+                                <div class="submit-note">Hinzfügen</div>
+                            </div>
+                        </li>
+                        <li class="basket-item">
+                            <div class="item-price">
+                                <h4>Produktname</h4>
+                                <p>15,45€</p>
+                            </div>
+                            <div class="item-notes-quantity">
+                                <a href="" class="add-note">Anmerkung</a>
+                                <div class="count-btn">
+                                    <h3 class="less-btn">-</h3>
+                                    <p class="current-count">4</p>
+                                    <h3 class="add-btn">+</h3>
+                                </div>
+                            </div>
+                            <div class="item-notes">
+                                <textarea maxlength="50"></textarea>
+                                <div class="abort-note">Abbrechen</div>
+                                <div class="submit-note">Hinzfügen</div>
+                            </div>
+                        </li>
+
                     </ul>
+                </div>
+                <div class="basket-total">
+                    <p>Gesamt: <span class="total-price"></span>���</p>
                 </div>
             </section>
 
         </section>
+        <div class="test-masse"></div>
     </main>
 
     <footer>
@@ -108,7 +164,7 @@
                 </ul>
             </div>
             <div class="footer-right" id="footer">
-                <p>&copy; 2025 by Patrick Frey | it's a personal library, no shop.</p>
+                <p>&copy; 2025 by Patrick Frey | Disclaimer to be added.</p>
             </div>
         </section>
     </footer>

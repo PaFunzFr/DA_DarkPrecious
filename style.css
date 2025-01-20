@@ -1,8 +1,8 @@
 .logo-main {
     width: 100%;
-    height: 48px;
+    height: 40px;
     padding: 0;
-    margin-bottom: 8px;
+    margin-bottom: -6px;
 }
 
 .headline {
@@ -22,20 +22,22 @@
 .title {
     display: flex;
     flex-direction: column;
+    height: var(--header-height);
+    justify-content: center;
 }
 
 .h-line-title {
-    width: 100%;
+    width: calc(100% - 52px);
     height: 2px;
+    margin-left: 52px;
     background-color: rgba(91, 76, 74, 0.233);
 }
 
 .title p {
     font-family: 'Raleway';
     font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
-    margin: 0;
+    font-size: 11px;
+    margin: 6px 0 0 0;
     color: var(--col-secondary);
 }
 
@@ -60,7 +62,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0,0,0,0)); 
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
     z-index: 1;
 }
 
@@ -91,8 +93,9 @@ main .container {
 }
 
 main {
-    width: 65%;
+    width: calc(100% - var(--basket-width));
 }
+
 .intro-text {
     display: flex;
     flex-direction: column;
@@ -103,28 +106,6 @@ main {
     width: 100%;
     border-radius: 10px;
 }
-.basket-section {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-left: 1px solid rgba(213, 213, 213, 1);
-    margin: 100px 0;
-    position: fixed;
-    width: 35%;
-    top:0;
-    right: 0;
-    z-index: 1;
-    height: calc(100% - 100px);
-}
-
-.basket-content {
-    display: flex;
-    justify-content: center;
-    margin: 40px auto;
-    width: 100%;
-    max-width: 400px;
-    background-color: red;
-}
 
 .shop-title {
     display: flex;
@@ -132,6 +113,7 @@ main {
     align-items: center;
     margin: 20px 0 0 0;
 }
+
 .shop-infos {
     display: flex;
     gap: 1rem;
@@ -142,62 +124,157 @@ main {
     display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .shop-infos li span {
-    font-size: 20px;
+    font-family: 'Roboto Slab';
 }
 
-.general-icons {
+.opening-hours {
+    display: flex;
+    align-items: center;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    gap: 5px;
     height: 20px;
 }
-.food-categories {
-    display: flex;
+
+.opening-hours p {
+    padding: 0;
+    margin: 0;
 }
 
-.food-categories li a{
-    background-color: transparent;
-    padding: 3px 10px;
+.food-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.food-categories li a {
+    background-color: white;
+    padding: 5px 14px;
     border-radius: 30px;
-    color: black;
+    color: var(--col-main);
+    letter-spacing: 0.5pt;
+    border: 1px solid var(--col-border);
 }
 
 .food-categories li a:hover {
     background-color: var(--col-complementary);
 }
+
 .search-food {
     display: flex;
     position: relative;
     border-radius: 10px;
     border: 1px solid var(--col-border);
     resize: none;
-    padding-left: 40px;
+    height: 30px;
+    padding: 15px 0 0 40px;
     background-image: url('./assets/img/03_products/magnifying-glass.png');
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: 5px;
+    font-family: 'Raleway';
 }
+
+/* BASKET */
+.basket-section {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: white;
+    border-left: 1px solid var(--col-border);
+    margin: var(--header-height) 0;
+    width: var(--basket-width);
+    z-index: 1;
+    height: calc(100% - var(--header-height));
+}
+
+.basket-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.basket-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.basket-item {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--col-border);
+}
+
+.basket-total {
+    display: flex;
+    height: 30px;
+    width: 100%;
+    background-color: red;
+    padding-bottom: var(--header-height);
+}
+
+.basket-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.item-price,
+.item-notes-quantity {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+}
+
+
+/* to be deleted after styling --> */
+.test-masse {
+    display: flex;
+    width: 100%;
+    height: 300vh;
+}
+/* <-- to be deleted after styling */
 
 @media screen and (max-width: 800px) {
     .bg-logo {
         height: 300px;
     }
+
     .logo-center {
         top: 62%;
     }
+
     .img-logo-center {
         border: 8px solid var(--col-main);
         padding: 5px;
         max-height: 120px;
         max-width: 120px;
-    }  
+    }
 }
 
 @media screen and (max-width: 600px) {
     .bg-logo {
         height: 230px;
     }
+
     .logo-center {
         top: 46%;
     }

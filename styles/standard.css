@@ -5,9 +5,15 @@
     --col-highlight: rgba(214, 93, 96, 1); 
     --col-accent: rgba(136, 90, 68, 1);     
     --col-complementary: rgba(255, 140, 0, 1); 
-    --col-light-text: rgb(242, 236, 228); 
-    --col-border: rgba(64, 53, 52, 1);     
-    --col-overlay: rgba(34, 30, 29, 0.8);  
+    --col-light-text: rgb(248, 237, 232);
+    --col-light-text-hover: rgba(213, 213, 213, 1);    
+    --col-border: rgba(213, 213, 213, 1);    
+    --col-overlay: rgba(34, 30, 29, 0.8);
+    
+    --header-height: 80px;
+    --basket-width: 344px;
+
+    --general-transition: all 0.3s ease;
 }
 
 body {
@@ -27,10 +33,11 @@ main {
 }
 
 header {
+    height: var(--header-height);
+    position: fixed;
+    width: 100%;
     background-color: white;
-
     filter: drop-shadow(0px 5px 4px rgba(74, 73, 73, 0.3));
-    height: 100px;
     z-index: 99;
 }
 
@@ -49,30 +56,42 @@ a {
 }
 
 h1 {
-    font-family: 'Alkatra';
-    font-style: normal;
+    font-family: 'Roboto Slab';
     height: 55px;
     width: 100%;
     letter-spacing: 6px;
     font-size: 40px;
-    margin: 0;
-    color: var(--col-bg);
+    margin: 0 0 0 20px;
 }
 
 h2 {
-    font-family: 'Alkatra';
-    font-size: 34px;
+    font-family: 'Roboto Slab';
+    font-size: 24px;
     padding: 0;
-    margin: 0;
+    margin: 0 0 10px 0;
     line-height: 34px;
+    letter-spacing: 1px;
+    color: var(--col-main);
 }
 
 h3 {
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    padding: 0;
+    margin: 0 0 5px 0;
+}
 
+h4 {
+    font-family: 'Roboto Slab';
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
 }
 
 p {
     line-height: 1.5;
+    margin: 0;
+    padding: 0;
 }
 
 .show-mobile {
@@ -82,4 +101,16 @@ p {
 ul {
     list-style-type: none;
     padding: 0;
+}
+
+.general-icons {
+    height: 20px;
+}
+
+.ham-line {
+    width: 35px;
+    height: 5px;
+    background-color: var(--col-complementary);
+    margin: 6px 0;
+    border-radius: 5px;
 }
