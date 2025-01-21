@@ -3,7 +3,7 @@
     display: flex;
     align-items: space-between;
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1000px;
     height: 100%;
     padding: 0 30px;
 }
@@ -77,7 +77,6 @@
 
 button {
     padding: 0;
-    margin-top: 4px;
     cursor: pointer;
     border: none;
     font-size: 14px;
@@ -93,4 +92,12 @@ button:hover {
 .add-btn:hover {
     cursor: pointer;
     background-color: var(--col-border);
+}
+
+/* DROP SHADOW */
+.shadow {
+    transition: var(--general-transition);
+}
+.shadow:hover {
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
 }

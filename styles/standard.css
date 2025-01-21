@@ -28,16 +28,24 @@ body {
 }
 
 main {
+    position: relative;
     flex: 1;
     background-color: white;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
     border-right: 1px solid var(--col-border);
+    z-index: 99;
 }
 
 .show-mobile {
     display: none;
 }
-
-
 
 /* HEADER */
 header {
@@ -50,9 +58,9 @@ header {
 
 /* FOOTER */
 footer {
-    background-color: white;
+    background-color: var(--col-border);
     border-top: 1px solid var(--col-border);
-    z-index: 0;
+    z-index: 99;
     color: var(--col-secondary);
     font-size: 12px;
 }
