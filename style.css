@@ -459,7 +459,7 @@ main {
 
     .basket-section {
         border-top: 1px solid var(--col-border);
-        height: 50vh;
+        height: 55vh;
         width: 100%;
         right: 50%;
         bottom: 0;
@@ -472,7 +472,7 @@ main {
     }
 
     .basket-content {
-        max-height: 30vh;
+        max-height: 35vh;
     }
 
     main {
