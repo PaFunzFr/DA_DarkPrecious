@@ -178,6 +178,7 @@ footer {
     background-position: 5px;
     font-family: 'Raleway';
 }
+
 /* PRODUCT SECTION */
 .shop-products {
     display: flex;
@@ -189,27 +190,31 @@ footer {
     flex-direction: column;
     gap: 15px;
 }
-.product {
+
+.product-card {
     display: flex;
-    height: 200px;
+    height: 150px;
     background-color: var(--col-light-text);
     border: 1px solid var(--col-border);
     border-radius: 10px;
     padding: 20px 15px;
     gap: 20px;
 }
+
 .product-img {
     object-fit: contain;
-    width: 200px;
+    width: 150px;
     border-radius: 8px;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
     opacity: 0.9;
 }
+
 .product-right {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
+
 .product-info {
     display: flex;
     width: 100%;
@@ -220,20 +225,29 @@ footer {
     margin-left: auto;
 }
 
+.product-categories {
+    display: flex;
+    margin-top: auto;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
 /* BASKET */
 .basket-section {
     display: flex;
-    position: fixed;
-    top: 0;
+    position: absolute;
     right: 0;
-    width: 100%;
+    min-height: 100vh;
+    margin-bottom: auto;
+    margin-left: auto;
     flex-direction: column;
     background-color: white;
-    border-left: 1px solid var(--col-border);
-    margin: var(--header-height) 0;
     width: var(--basket-width);
-    z-index: 1;
-    height: calc(100% - var(--header-height));
+    border-left: 1px solid var(--col-border);
 }
 
 .basket-content {
@@ -246,8 +260,6 @@ footer {
 }
 
 .basket-header {
-    position: fixed;
-    top: var(--header-height);
     padding-top: 15px;
     height: 100px;
     background-color: white;
@@ -255,7 +267,7 @@ footer {
 }
 
 .basket-summary {
-    margin-top: 110px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;

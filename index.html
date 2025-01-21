@@ -30,6 +30,58 @@
             </ul>
         </section>
     </header>
+    <div class="sticky">
+    <section class="basket-section">
+        <div class="basket-content">
+            <div class="basket-header">
+                <h2 class="basket-title">Warenkorb</h2>
+                <div class="deliver-btn-container">
+                    <div class="deliver-btn">
+                        <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                        <div class="deliver-btn-right">
+                            <h4>Lieferung</h4>
+                            <p class="delivery-info">ab 25€</p>
+                        </div>
+                    </div>
+                    <div class="deliver-btn">
+                        <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                        <div class="deliver-btn-right">
+                            <h4>Abholung</h4>
+                            <p class="delivery-info">ab 13:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="basket-summary">
+                <li class="basket-item">
+                    <div class="item-price">
+                        <h4>Beste Kaffemaschine 3000</h4>
+                        <p class="price-tag">15,45€</p>
+                    </div>
+                    <div class="item-notes-quantity">
+                        <button class="note-btn">Anmerkung</button>
+                        <div class="count-btn">
+                            <h3 class="less-btn">-</h3>
+                            <p class="current-count">4</p>
+                            <h3 class="add-btn">+</h3>
+                        </div>
+                    </div>
+                    <div class="placed-note"><p>Ich möchte aber ganz viel Schokolade dazu</p></div>
+                    <div class="item-notes">
+                        <textarea class="item-note" maxlength="160"></textarea>
+                        <div class="note-submit-container">
+                            <button class="note-btn">Abbrechen</button>
+                            <button class="note-btn">Hinzfügen</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <section class="basket-total">
+            <h2>Bezahlen (403,49€)</h2>
+        </section>
+    </section>
+</div>
 
     <main>
         <div class="bg-logo">
@@ -38,7 +90,6 @@
                 <img src="./assets/img/01_header/logo.png" alt="" class="img-logo-center">
             </div>
         </div>
-
         <section class="shop-section container">
             <div class="intro-text">
                 <div class="shop-title">
@@ -62,11 +113,10 @@
                     <li><a class="food-category" href="">Zubehör</a></li>
                 </ul>
             </div>
-
             <div class="shop-products" id="favouriteItems">
                 <h2>Beliebt</h2>
                 <ul class="products-container">
-                    <li class="product">
+                    <li class="product-card">
                         <img src="./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg" alt="" class="product-img">
                         <div class="product-right">
                             <div class="product-info">
@@ -74,11 +124,12 @@
                                 <button>Produktinfo</button>
                                 <div class="add-product">+</div>
                             </div>
+                            <p class="product-description">Die Krönung des Espressogenusses.</p>
                             <p class="product-price">8,00 €</p>
-                            <p class="product-description">Beschreibung des Produktes</p>
+                            <p class="product-categories">Beschreibung des Produktes</p>
                         </div>
                     </li>
-                    <li class="product">
+                    <li class="product-card">
                         <img src="./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg" alt="" class="product-img">
                         <div class="product-right">
                             <div class="product-info">
@@ -92,60 +143,7 @@
                     </li>
                 </ul>
             </div>
-
-            <section class="basket-section">
-                <div class="basket-content">
-                    <div class="basket-header">
-                        <h2 class="basket-title">Warenkorb</h2>
-                        <div class="deliver-btn-container">
-                            <div class="deliver-btn">
-                                <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
-                                <div class="deliver-btn-right">
-                                    <h4>Lieferung</h4>
-                                    <p class="delivery-info">ab 25€</p>
-                                </div>
-                            </div>
-                            <div class="deliver-btn">
-                                <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
-                                <div class="deliver-btn-right">
-                                    <h4>Abholung</h4>
-                                    <p class="delivery-info">ab 13:00</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="basket-summary">
-                        <li class="basket-item">
-                            <div class="item-price">
-                                <h4>Beste Kaffemaschine 3000</h4>
-                                <p class="price-tag">15,45€</p>
-                            </div>
-                            <div class="item-notes-quantity">
-                                <button class="note-btn">Anmerkung</button>
-                                <div class="count-btn">
-                                    <h3 class="less-btn">-</h3>
-                                    <p class="current-count">4</p>
-                                    <h3 class="add-btn">+</h3>
-                                </div>
-                            </div>
-                            <div class="placed-note"><p>Ich möchte aber ganz viel Schokolade dazu</p></div>
-                            <div class="item-notes">
-                                <textarea class="item-note" maxlength="160"></textarea>
-                                <div class="note-submit-container">
-                                    <button class="note-btn">Abbrechen</button>
-                                    <button class="note-btn">Hinzfügen</button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <section class="basket-total">
-                    <h2>Bezahlen (403,49€)</h2>
-                </section>
-            </section>
-
         </section>
-        <div class="test-masse"></div>
     </main>
 
     <footer>
