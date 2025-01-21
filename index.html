@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <section class="container">
+        <section class="shop-section container">
             <div class="intro-text">
                 <div class="shop-title">
                     <h2>Dark Precious</h2>
@@ -52,20 +52,50 @@
                 </ul>
                 <div class="opening-hours">
                     <img class="general-icons"src="./assets/img/03_products/clock-regular.svg">
-                    <p>Dieser Shop öffnet um 8:00. Bestelle jetzt und bekomme im Anschluss geliefert.</p>
+                    <p>Dieser Shop öffnet um 8:00 Uhr. Bestelle jetzt und bekomme im Anschluss geliefert.</p>
                 </div>
                 <textarea class="search-food" maxlength="20"></textarea>
                 <ul class="food-categories">
-                    <li><a href="">Beliebt</a></li>
-                    <li><a href="">Kaffebohnen</a></li>
-                    <li><a href="">Kaffeemaschinen</a></li>
-                    <li><a href="">Zubehör</a></li>
+                    <li><a class="food-category" href="">Beliebt</a></li>
+                    <li><a class="food-category" href="">Kaffebohnen</a></li>
+                    <li><a class="food-category" href="">Kaffeemaschinen</a></li>
+                    <li><a class="food-category" href="">Zubehör</a></li>
+                </ul>
+            </div>
+
+            <div class="shop-products" id="favouriteItems">
+                <h2>Beliebt</h2>
+                <ul class="products-container">
+                    <li class="product">
+                        <img src="./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg" alt="" class="product-img">
+                        <div class="product-right">
+                            <div class="product-info">
+                                <h3>Name des Produktes</h3>
+                                <button>Produktinfo</button>
+                                <div class="add-product">+</div>
+                            </div>
+                            <p class="product-price">8,00 €</p>
+                            <p class="product-description">Beschreibung des Produktes</p>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <img src="./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg" alt="" class="product-img">
+                        <div class="product-right">
+                            <div class="product-info">
+                                <h3>Name des Produktes</h3>
+                                <button>Produktinfo</button>
+                                <div class="add-product">+</div>
+                            </div>
+                            <p class="product-price">8,00 €</p>
+                            <p class="product-description">Beschreibung des Produktes</p>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <section class="basket-section">
                 <div class="basket-content">
-                    <span class="basket-header">
+                    <div class="basket-header">
                         <h2 class="basket-title">Warenkorb</h2>
                         <div class="deliver-btn-container">
                             <div class="deliver-btn">
@@ -83,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                    </span>
+                    </div>
                     <ul class="basket-summary">
                         <li class="basket-item">
                             <div class="item-price">
@@ -98,92 +128,9 @@
                                     <h3 class="add-btn">+</h3>
                                 </div>
                             </div>
+                            <div class="placed-note"><p>Ich möchte aber ganz viel Schokolade dazu</p></div>
                             <div class="item-notes">
-                                <textarea class="item-note" maxlength="50"></textarea>
-                                <div class="note-submit-container">
-                                    <button class="note-btn">Abbrechen</button>
-                                    <button class="note-btn">Hinzfügen</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="basket-item">
-                            <div class="item-price">
-                                <h4>Beste Kaffemaschine 3000</h4>
-                                <p class="price-tag">15,45€</p>
-                            </div>
-                            <div class="item-notes-quantity">
-                                <button class="note-btn">Anmerkung</button>
-                                <div class="count-btn">
-                                    <h3 class="less-btn">-</h3>
-                                    <p class="current-count">4</p>
-                                    <h3 class="add-btn">+</h3>
-                                </div>
-                            </div>
-                            <div class="item-notes">
-                                <textarea class="item-note" maxlength="50"></textarea>
-                                <div class="note-submit-container">
-                                    <button class="note-btn">Abbrechen</button>
-                                    <button class="note-btn">Hinzfügen</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="basket-item">
-                            <div class="item-price">
-                                <h4>Beste Kaffemaschine 3000</h4>
-                                <p class="price-tag">15,45€</p>
-                            </div>
-                            <div class="item-notes-quantity">
-                                <button class="note-btn">Anmerkung</button>
-                                <div class="count-btn">
-                                    <h3 class="less-btn">-</h3>
-                                    <p class="current-count">4</p>
-                                    <h3 class="add-btn">+</h3>
-                                </div>
-                            </div>
-                            <div class="item-notes">
-                                <textarea class="item-note" maxlength="50"></textarea>
-                                <div class="note-submit-container">
-                                    <button class="note-btn">Abbrechen</button>
-                                    <button class="note-btn">Hinzfügen</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="basket-item">
-                            <div class="item-price">
-                                <h4>Beste Kaffemaschine 3000</h4>
-                                <p class="price-tag">15,45€</p>
-                            </div>
-                            <div class="item-notes-quantity">
-                                <button class="note-btn">Anmerkung</button>
-                                <div class="count-btn">
-                                    <h3 class="less-btn">-</h3>
-                                    <p class="current-count">4</p>
-                                    <h3 class="add-btn">+</h3>
-                                </div>
-                            </div>
-                            <div class="item-notes">
-                                <textarea class="item-note" maxlength="50"></textarea>
-                                <div class="note-submit-container">
-                                    <button class="note-btn">Abbrechen</button>
-                                    <button class="note-btn">Hinzfügen</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="basket-item">
-                            <div class="item-price">
-                                <h4>Beste Kaffemaschine 3000</h4>
-                                <p class="price-tag">15,45€</p>
-                            </div>
-                            <div class="item-notes-quantity">
-                                <button class="note-btn">Anmerkung</button>
-                                <div class="count-btn">
-                                    <h3 class="less-btn">-</h3>
-                                    <p class="current-count">4</p>
-                                    <h3 class="add-btn">+</h3>
-                                </div>
-                            </div>
-                            <div class="item-notes">
-                                <textarea class="item-note" maxlength="50"></textarea>
+                                <textarea class="item-note" maxlength="160"></textarea>
                                 <div class="note-submit-container">
                                     <button class="note-btn">Abbrechen</button>
                                     <button class="note-btn">Hinzfügen</button>
@@ -193,7 +140,7 @@
                     </ul>
                 </div>
                 <section class="basket-total">
-                    <p>Gesamt: <span class="total-price"></span>���</p>
+                    <h2>Bezahlen (403,49€)</h2>
                 </section>
             </section>
 
@@ -203,28 +150,24 @@
 
     <footer>
         <section class="container">
-            <div class="footer-left">
                 <ul class="social-media-icons">
                     <li>
                         <a href="https://www.facebook.com" target="_blank">
-                            <img src="./assets/img/02_footer/facebook.png" alt="">
+                            <img class="footer-icon" src="./assets/img/02_footer/facebook_orange.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="https://www.instagram.com" target="_blank">
-                            <img src="./assets/img/02_footer/instagram.png" alt="">
+                            <img class="footer-icon" src="./assets/img/02_footer/instagram_orange.png" alt="">
                         </a>
                     </li>
                     <li>
                         <a href="https://x.com/" target="_blank">
-                            <img src="./assets/img/02_footer/twitter.png" alt="">
+                            <img class="footer-icon" src="./assets/img/02_footer/twitter_orange.png" alt="">
                         </a>
                     </li>
                 </ul>
-            </div>
-            <div class="footer-right" id="footer">
-                <p>&copy; 2025 by Patrick Frey | Disclaimer to be added.</p>
-            </div>
+                <p class="copyright">&copy; 2025 by Patrick Frey | Disclaimer to be added.</p>
         </section>
     </footer>
 </body>
