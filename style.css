@@ -295,12 +295,17 @@ main {
     flex: 1;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
+    max-height: 70vh;
     padding: 20px;
 }
 
 .basket-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
+    margin: 0 auto;
+    width: 100%;
     padding-top: 15px;
     top: 0;
     height: 100px;
@@ -311,8 +316,8 @@ main {
 .basket-summary {
     margin-top: 100px;
     display: flex;
+    overflow-y: auto;
     flex-direction: column;
-    max-height: 100px;
     gap: 15px;
 }
 
@@ -449,7 +454,7 @@ main {
 @media screen and (max-width: 900px) {
     .sticky {
         /* toggle */
-        display: none;
+        /* display: none;*/
         position: fixed;
         z-index: 100;
         width: 100%;
@@ -489,8 +494,6 @@ main {
     .product-card {
         flex-direction: column;
     }
-
-
 }
 
 @media screen and (max-width: 400px) {

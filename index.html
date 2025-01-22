@@ -11,7 +11,7 @@
     <link rel="icon" href="./assets/img/00_favicon/logo.png">
 </head>
 
-<body>
+<body onload="renderInit()">
     <header>
         <section class="container-nomax">
             <div class="headline">
@@ -182,9 +182,9 @@
                     <li><a class="food-category" href="">Zubehör</a></li>
                 </ul>
             </div>
-            <div class="shop-products" id="favouriteItems">
+            <div class="shop-products">
                 <h2>Beliebt</h2>
-                <ul class="products-container">
+                <ul class="products-container" id="favouriteProducts">
                     <li class="product-card shadow">
                         <img src="./assets/img/03_products/01_coffeemachines/Brew_Blaster_3000.jpeg" alt="" class="product-img">
                         <div class="product-right">
@@ -199,10 +199,22 @@
                                 <li class="coffee-amount">500g</li>
                                 <li class="coffee-amount">1000g</li>
                             </ul>
-                            <p class="product-price">8,00 €</p>
+                            <p class="product-price">8,00 € <span class="in-storage" id="inStorage">8 verfügbar</span></p>
                             <p class="product-categories">Beschreibung des Produktes</p>
                         </div>
                     </li>
+                </ul>
+                <h2>Kaffebohnen</h2>
+                <ul class="products-container">
+
+                </ul>
+                <h2>Kaffeemaschinen</h2>
+                <ul class="products-container">
+
+                </ul>
+                <h2>Zubehör</h2>
+                <ul class="products-container">
+                    
                 </ul>
             </div>
         </section>
