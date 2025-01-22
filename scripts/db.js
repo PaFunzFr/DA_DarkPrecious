@@ -4,7 +4,7 @@ let database = [
         products: [
             {
             name: "Midnight Mirage",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/1.png",
             description: "Geheimnisvoller Kaffee mit dunklen Beeren und einem Hauch von Schokolade.",
             categories: ["Fruchtig", "Dunkel", "Mystisch"],
             price: 7.50,
@@ -15,7 +15,7 @@ let database = [
             },
             {
             name: "Sunrise Serenade",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/2.png",
             description: "Sanfter Weckruf mit blumigen Noten und einem Hauch von Zitrus.",
             categories: ["Blumig", "Leicht", "Zitrus"],
             price: 8.75,
@@ -26,7 +26,7 @@ let database = [
             },
             {
             name: "Desert Dusk",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/3.png",
             description: "Warmer, nussiger Kaffee mit einer leichten Süße von Karamell.",
             categories: ["Nussig", "Karamell", "Süß"],
             price: 8.50,
@@ -37,7 +37,7 @@ let database = [
             },
             {
             name: "Velvet Volcano",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/4.png",
             description: "Intensiver, erdiger Kaffee mit einem rauchigen Abgang.",
             categories: ["Intensiv", "Erdig", "Rauchig"],
             price: 10.00,
@@ -48,7 +48,7 @@ let database = [
             },
             {
             name: "Cosmic Cascade",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/5.png",
             description: "Lebhafter Kaffee mit Noten von tropischen Früchten und einer spritzigen Säure.",
             categories: ["Tropisch", "Spritzig", "Lebhaft"],
             price: 12.50,
@@ -59,7 +59,7 @@ let database = [
             },
             {
             name: "Twilight Truffle",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/6.png",
             description: "Luxuriöser, schokoladiger Kaffee mit einem Hauch von Vanille.",
             categories: ["Schokoladig", "Luxuriös", "Vanille"],
             price: 9.00,
@@ -70,7 +70,7 @@ let database = [
             },
             {
             name: "Aurora Bliss",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/7.png",
             description: "Heller, balancierter Kaffee mit Noten von Honig und Mandeln.",
             categories: ["Balanciert", "Honig", "Mandel"],
             price: 8.25,
@@ -81,7 +81,7 @@ let database = [
             },
             {
             name: "Stardust Symphony",
-            picture: "./assets/img/03_products/02_coffee/",
+            picture: "./assets/img/03_products/02_coffee/8.png",
             description: "Samtiger Kaffee mit einer subtilen Süße und Noten von roten Früchten.",
             categories: ["Samtig", "Süß", "Rote Früchte"],
             price: 7.75,
@@ -182,7 +182,7 @@ let database = [
         products: [
             {
                 name: "Foam Master 5000",
-                picture: "./assets/img/03_products/03_accessories/Foam_Master_5000.jpeg",
+                picture: "./assets/img/03_products/03_misc/foam-master.png",
                 description: "Schaum wie aus der Meisterhand, für den perfekten Cappuccino.",
                 categories: ["Milchaufschäumer", "Elektrisch", "Stahl"],
                 price: 39.99,
@@ -192,7 +192,7 @@ let database = [
             },
             {
                 name: "Bean Buddy",
-                picture: "./assets/img/03_products/03_accessories/Bean_Buddy.jpeg",
+                picture: "./assets/img/03_products/03_misc/bean-buddy.png",
                 description: "Der treue Begleiter für frisch gemahlene Kaffeebohnen.",
                 categories: ["Kaffeemühle", "Manuell", "Kompakt"],
                 price: 49.99,
@@ -201,18 +201,8 @@ let database = [
                 rating: 4.7,
             },
             {
-                name: "Steamy Steve",
-                picture: "./assets/img/03_products/03_accessories/Steamy_Steve.jpeg",
-                description: "Lässt deinen Kaffee noch heißer erscheinen.",
-                categories: ["Milchkännchen", "Stahl", "Hitzeresistent"],
-                price: 24.99,
-                inBasket: true,
-                amountInStore: 40,
-                rating: 4.5,
-            },
-            {
                 name: "Grindzilla",
-                picture: "./assets/img/03_products/03_accessories/Grindzilla.jpeg",
+                picture: "./assets/img/03_products/03_misc/grindzilla.png",
                 description: "Der Gigant unter den Kaffeebohnenschreddern.",
                 categories: ["Kaffeemühle", "Elektrisch", "Profi"],
                 price: 99.99,
@@ -222,7 +212,7 @@ let database = [
             },
             {
                 name: "Spoon of Destiny",
-                picture: "./assets/img/03_products/03_accessories/Spoon_of_Destiny.jpeg",
+                picture: "./assets/img/03_products/03_misc/destiny-spoon.png",
                 description: "Der Löffel, der die perfekte Menge misst.",
                 categories: ["Messlöffel", "Holz", "Ergonomisch"],
                 price: 9.99,
@@ -232,7 +222,7 @@ let database = [
             },
             {
                 name: "Filter Frenzy",
-                picture: "./assets/img/03_products/03_accessories/Filter_Frenzy.jpeg",
+                picture: "./assets/img/03_products/03_misc/filter-frenzy.png",
                 description: "Für kristallklaren Kaffeegenuss.",
                 categories: ["Kaffeefilter", "Papier", "Kompostierbar"],
                 price: 4.99,
@@ -242,7 +232,7 @@ let database = [
             },
             {
                 name: "Cup Claw",
-                picture: "./assets/img/03_products/03_accessories/Cup_Claw.jpeg",
+                picture: "./assets/img/03_products/03_misc/cup-claw.png",
                 description: "Griffiger als eine Bärenpranke, für den perfekten Griff.",
                 categories: ["Tasse", "Keramik", "Rutschfest"],
                 price: 14.99,
@@ -250,16 +240,6 @@ let database = [
                 amountInStore: 60,
                 rating: 4.7,
             },
-            {
-                name: "Drip Defender",
-                picture: "./assets/img/03_products/03_accessories/Drip_Defender.jpeg",
-                description: "Schützt deine Küche vor Kaffeeunfällen.",
-                categories: ["Tropfschale", "Silikon", "Antirutsch"],
-                price: 19.99,
-                inBasket: true,
-                amountInStore: 35,
-                rating: 4.6,
-            }
         ]
     }
 ];

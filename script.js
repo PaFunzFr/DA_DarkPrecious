@@ -1,3 +1,5 @@
+
+// GLOBAL VARIABLES
 //get from db.js and set to Storage
 let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
 
@@ -7,11 +9,6 @@ let dbFromStorage = JSON.parse(localStorage.getItem("database"));
 // initialize basket database
 let dbBasketToStorage = localStorage.setItem("basket", JSON.stringify([]));
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
-
-function pushItemToBasket() {
-    dbBasketFromStorage.push(createBasketObject("TestMeister", "TestPreis"));
-    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
-}
 
 // define categories of Storage
 let dbCoffe = dbFromStorage[0];
@@ -28,12 +25,6 @@ const containerIdEquipment = "equipmentProducts";
 // Wenn ich dem Warenkorb hinzufüge übergebe nur releavante Informationen in datenbank (Storage) Warenkorb => Name, Preis, Anzahl in Warenkorb, Anmerkung
 // Wenn ich dem Warenkorb hinzufüge amountInStore -1, wenn amountInStore = 0 => produkt nicht mehr vorhanden
 
-// GENERAL VARIABLES
-let amountSelected = false;
-
-console.log(dbCoffe.products);
-console.log(dbFromStorage.indexOf(dbCoffeeMachines));
-
 
 function renderInit() {
     renderProductCards(dbIndexCoffe, containerIdCoffe);
@@ -42,6 +33,8 @@ function renderInit() {
     pushItemToBasket();
 }
 
+
+// RENDER PRODUCT CARDS
 function renderProductCards(dbCategoryIndex, containerId) {
     getContainerById(containerId).innerHTML = "";
     for (let i = 0; i < dbFromStorage[dbCategoryIndex].products.length; i ++) {
@@ -50,7 +43,6 @@ function renderProductCards(dbCategoryIndex, containerId) {
     }
 }
 
-// console.log(dbProductData);
 function getContainerById(id) {
     return document.getElementById(id);
 }
@@ -95,4 +87,16 @@ function highlightButton(event, index, newPrice) {
     document.getElementById(`priceTag${index}`).innerText = newPrice.toFixed(2) +" €";
 }
 
-// ELSE / FUTURE FUNCTIONS
+// ADD TO & EDIT BASKET
+
+function pushItemToBasket() {
+    dbBasketFromStorage.push(createBasketObject("TestMeister", "TestPreis"));
+    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
+}
+
+
+
+/*
+console.log(dbCoffe.products);
+console.log(dbFromStorage.indexOf(dbCoffeeMachines));
+*/
