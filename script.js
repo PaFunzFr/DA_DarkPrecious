@@ -109,9 +109,9 @@ function renderBasket(containerId) {
 function hideCommentField(index) {
     const noteElement = document.getElementById(`note${index}`);
     if (dbBasketFromStorage[index].comment === "") {
-        noteElement.style.display = "none"; // Verstecke das Feld
+        noteElement.style.display = "none";
     } else {
-        noteElement.style.display = ""; // Zeige das Feld
+        noteElement.style.display = ""; 
     }
 }
 function renderSingleBasketCard(containerId, index) {
