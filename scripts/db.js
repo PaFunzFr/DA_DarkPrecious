@@ -263,7 +263,3 @@ let database = [
         ]
     }
 ];
-
-
-let dataBaseBasket = []
-
