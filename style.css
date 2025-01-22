@@ -221,8 +221,16 @@ main {
 }
 
 .product-price {
-    font-size: 16px;
+    font-size: 12px;
 }
+.in-storage,
+.product-price b {
+    font-size: 14px;
+    font-family: 'Roboto Slab';
+}
+.product-price b {
+    margin-right: 5px;
+}  
 
 .product-info {
     display: flex;
@@ -264,7 +272,7 @@ main {
 .coffee-amount:hover,
 .add-product:hover {
     cursor: pointer;
-    background-color: var(--col-complementary);
+    background-color: var(--col-border);
 }
 
 .product-categories {
