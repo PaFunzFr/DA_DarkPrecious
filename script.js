@@ -22,6 +22,8 @@ const containerIdMachines = "machineProducts";
 const dbIndexEquipment = 2;
 const containerIdEquipment = "equipmentProducts";
 
+const containerIdBasket = "basket";
+
 // Wenn ich dem Warenkorb hinzufüge übergebe nur releavante Informationen in datenbank (Storage) Warenkorb => Name, Preis, Anzahl in Warenkorb, Anmerkung
 // Wenn ich dem Warenkorb hinzufüge amountInStore -1, wenn amountInStore = 0 => produkt nicht mehr vorhanden
 
@@ -31,6 +33,7 @@ function renderInit() {
     renderProductCards(dbIndexMachines, containerIdMachines);
     renderProductCards(dbIndexEquipment, containerIdEquipment);
     pushItemToBasket();
+    renderBasket(containerIdBasket);
 }
 
 
@@ -45,16 +48,6 @@ function renderProductCards(dbCategoryIndex, containerId) {
 
 function getContainerById(id) {
     return document.getElementById(id);
-}
-
-// BASKET DATABASE AND FUNCTIONS
-function createBasketObject(productName, productPrice) {
-    return {
-        productName: productName,
-        amount: 1,
-        price: productPrice,
-        comment: ""
-    }
 }
 
 // BUTTON COFFEE AMOUNT
@@ -87,15 +80,66 @@ function highlightButton(event, index, newPrice) {
     document.getElementById(`priceTag${index}`).innerText = newPrice.toFixed(2) +" €";
 }
 
-// ADD TO & EDIT BASKET
+// BASKET DATABASE AND FUNCTIONS
+function createBasketObject(productName, productPrice) {
+    return {
+        productName: productName,
+        amount: 1,
+        price: productPrice,
+        comment: ""
+    }
+}
 
+// ADD TO & EDIT BASKET
 function pushItemToBasket() {
-    dbBasketFromStorage.push(createBasketObject("TestMeister", "TestPreis"));
+    dbBasketFromStorage.push(createBasketObject("TestMeister", 14.44));
     localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
 }
 
 
+function renderBasket(containerId) {
+    //getContainerById(containerId).innerHTML = "";
+    for (let i = 0; i < dbBasketFromStorage.length; i ++) {
+        renderSingleBasketCard(containerId, i);
+        hideCommentField(i);
+    }
 
+}
+
+function hideCommentField(index) {
+    const noteElement = document.getElementById(`note${index}`);
+    if (dbBasketFromStorage[index].comment === "") {
+        noteElement.style.display = "none"; // Verstecke das Feld
+    } else {
+        noteElement.style.display = ""; // Zeige das Feld
+    }
+}
+function renderSingleBasketCard(containerId, index) {
+    getContainerById(containerId).innerHTML += `
+    <li class="basket-item" id="basketItem${index}">
+                    <div class="item-price">
+                        <h4>${dbBasketFromStorage[index].productName}</h4>
+                        <p class="price-tag">${dbBasketFromStorage[index].price * dbBasketFromStorage[index].amount} €</p>
+                    </div>
+                    <div class="item-notes-quantity">
+                        <button class="note-btn">Anmerkung</button>
+                        <div class="count-btn">
+                            <h3 class="less-btn">-</h3>
+                            <p class="current-count">${dbBasketFromStorage[index].amount}</p>
+                            <h3 class="more-btn">+</h3>
+                        </div>
+                    </div>
+                    <div class="placed-note"><p id="note${index}">${dbBasketFromStorage[index].comment}</p></div>
+                    <div class="item-notes">
+                        <textarea class="item-note" maxlength="160"></textarea>
+                        <div class="note-submit-container">
+                            <button class="note-btn">Abbrechen</button>
+                            <button class="note-btn">Hinzfügen</button>
+                        </div>
+                    </div>
+                </li>
+    `
+}
 /*
 console.log(dbCoffe.products);
 console.log(dbFromStorage.indexOf(dbCoffeeMachines));

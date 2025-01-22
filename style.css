@@ -305,6 +305,7 @@ main {
     align-items: center;
     max-height: 70vh;
     padding: 20px;
+    width: 100%;
 }
 
 .basket-header {
@@ -322,6 +323,8 @@ main {
 }
 
 .basket-summary {
+    width: 100%;
+    min-width: calc(var(--basket-width) - 2 * 30px) !important;
     margin-top: 100px;
     display: flex;
     overflow-y: auto;
@@ -330,6 +333,7 @@ main {
 }
 
 .basket-item {
+    width: 100%;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--col-border);
 }
@@ -381,7 +385,6 @@ main {
 .basket-item {
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 10px;
 }
 
