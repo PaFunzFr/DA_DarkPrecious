@@ -36,7 +36,7 @@ function productCardTop(dbCategoryIndex, dbProductData, index) {
         <div class="product-right">
             <div class="product-info">
                 <h3>${dbProductData.name}</h3>
-                <img class="general-icons" src="./assets/img/03_products/info.png">
+                <img title="Alles rund um ${dbFromStorage[dbCategoryIndex].category}" class="general-icons info-btn" src="./assets/img/03_products/info.png">
                 <div class="add-product" onclick="pushItemToBasket(${dbCategoryIndex}, '${dbProductData.name}', ${index})">+</div>
             </div>
             <p class="product-description">${dbProductData.description}</p>`

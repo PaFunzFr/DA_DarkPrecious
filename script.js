@@ -23,6 +23,7 @@ function renderInit() {
     renderAllProductCards()
     renderBasket(containerIdBasket);
     renderTemplateTotal();
+    checkIfBasketEmpty();
 }
 
 // RENDER PRODUCT CARDS
@@ -134,6 +135,7 @@ function checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount) {
 
 // BASKET
 function renderBasketComplete() {
+    checkIfBasketEmpty()
     updateBasket();
     renderBasket(containerIdBasket);
     renderTemplateTotal();
@@ -203,7 +205,7 @@ function decreaseCount(index) {
     if (dbBasketFromStorage[index].amount > 1) {
         dbBasketFromStorage[index].amount --;
     } else {
-    dbBasketFromStorage.splice(index, 1);
+        dbBasketFromStorage.splice(index, 1);
     }
     renderBasketComplete();
 }
@@ -246,20 +248,37 @@ function searchForMatches(filter, productTitle, description, categories, singleP
 }
 
 // BASKET BUTTONS
+function toggleButton(activeBtnId, inactiveBtnId) {
+    const activeBtn = document.getElementById(activeBtnId);
+    const inactiveBtn = document.getElementById(inactiveBtnId);
+    activeBtn.style.backgroundColor = "white";
+    activeBtn.style.color = "black";
+    activeBtn.style.filter = "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3))";
+    inactiveBtn.style.backgroundColor = "rgba(213, 213, 213, 1)";
+    inactiveBtn.style.color = "grey";
+    inactiveBtn.style.filter = "none";
+}
+
 function delivery() {
-    document.getElementById("deliveryBtn").style.backgroundColor = "white";
-    document.getElementById("deliveryBtn").style.color = "black";
-    document.getElementById("deliveryBtn").style.filter = "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3))";
-    document.getElementById("pickupBtn").style.backgroundColor = "rgba(213, 213, 213, 1)";
-    document.getElementById("pickupBtn").style.color = "grey";
-    document.getElementById("pickupBtn").style.filter = "none";
+    toggleButton("deliveryBtn", "pickupBtn");
+    shippingFee = 3.49;
+    renderTemplateTotal();
 }
 
 function pickup() {
-    document.getElementById("deliveryBtn").style.backgroundColor = "rgba(213, 213, 213, 1)";
-    document.getElementById("deliveryBtn").style.color = "grey";
-    document.getElementById("deliveryBtn").style.filter = "none";
-    document.getElementById("pickupBtn").style.backgroundColor = "white";
-    document.getElementById("pickupBtn").style.color = "black";
-    document.getElementById("pickupBtn").style.filter = "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3))";
+    toggleButton("pickupBtn", "deliveryBtn");
+    shippingFee = 0;
+    renderTemplateTotal();
+}
+
+function checkIfBasketEmpty() {
+    if (dbBasketFromStorage.length > 0) {
+        document.getElementById('deliveryContainer').style.display = "flex";
+        document.getElementById('basketTotal').style.display = "flex";
+        document.getElementById('noProducts').style.display = "none";
+    } else {
+        document.getElementById('deliveryContainer').style.display = "";
+        document.getElementById('basketTotal').style.display = "";
+        document.getElementById('noProducts').style.display = "";
+    }
 }

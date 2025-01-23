@@ -18,7 +18,7 @@
 
 /* DELVIER BUTTON */
 .deliver-btn-container {
-    display: flex;
+    display: none;
     background-color: var(--col-border);
     width: 280px;
     height: 40px;
@@ -112,4 +112,8 @@ button:hover {
 }
 .shadow:hover {
     filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
+}
+
+.info-btn:hover {
+    cursor: context-menu;
 }

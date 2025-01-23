@@ -1,6 +1,6 @@
 let database = [
     {
-        category: "coffee",
+        category: "Kaffee",
         products: [
             {
             name: "Midnight Mirage",
@@ -93,7 +93,7 @@ let database = [
         ],
     },
     {
-        category: "kaffeemaschinen",
+        category: "Alles rund um Kaffeemaschinen",
         products: [
             {
             name: "Brewzilla",
@@ -178,7 +178,7 @@ let database = [
         ],
     },
     {
-        category: "equipment",
+        category: "Zubehör",
         products: [
             {
                 name: "Foam Master 5000",

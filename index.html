@@ -34,9 +34,9 @@
     <section class="basket-section">
         <div class="basket-header">
             <h2 class="basket-title">Warenkorb</h2>
-            <div class="deliver-btn-container">
+            <div class="deliver-btn-container" id="deliveryContainer">
                 <div class="deliver-btn" id="deliveryBtn" onclick="delivery()">
-                    <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                    <img class="general-icons" src="./assets/img/03_products/bike2.png">
                     <div class="deliver-btn-right">
                         <h4>Lieferung</h4>
                         <p class="delivery-info">ab 25€</p>
@@ -57,11 +57,12 @@
             </ul>
         </div>
         <section class="basket-total" id="basketTotal">
-            <p class="current-price">Zwischensumme: <span>349,00 €</span></p>
-            <p class="shipping-fee">Lieferkosten: <span>3,49€</span></p>
-            <p class="total-price">Gesamt: <span>3,49€</span></p>
-            <h2>Bezahlen (403,49€)</h2>
+                <!-- rendered total here -->
         </section>
+        <div class="empty-basket" id="noProducts">
+            <img src="./assets/img/03_products/basket.png" alt="">
+            <p>Dein Warenkorb ist leer.</p>
+        </div>
     </section>
 </div>
 
@@ -76,7 +77,7 @@
             <div class="intro-text">
                 <div class="shop-title">
                     <h2>Dark Precious</h2>
-                    <img class="general-icons"src="./assets/img/03_products/info.png">
+                    <img class="general-icons info-btn" src="./assets/img/03_products/info.png" title="Die stärksten und sortenreinsten Kaffees für echte Liebhaber, seit 1976">
                 </div>
                 <ul class="shop-infos">
                     <li><img class="general-icons"src="./assets/img/03_products/rating_color.png"><span>4,2</span> (200+)</li>

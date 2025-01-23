@@ -337,7 +337,7 @@ main {
 
 /* END PRICE / ORDER */
 .basket-total {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     align-self: center;
@@ -434,6 +434,22 @@ main {
     gap: 8px;
 }
 
+.empty-basket {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 100px;
+    height: 200px;
+}
+
+.empty-basket img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 800px) {
     .bg-logo {
         height: 300px;
@@ -479,6 +495,7 @@ main {
         width: 100%;
     }
 }
+
 @media screen and (max-width: 550px) {
 
     .bg-logo {
