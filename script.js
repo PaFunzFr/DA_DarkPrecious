@@ -244,3 +244,22 @@ function searchForMatches(filter, productTitle, description, categories, singleP
         }
     }
 }
+
+// BASKET BUTTONS
+function delivery() {
+    document.getElementById("deliveryBtn").style.backgroundColor = "white";
+    document.getElementById("deliveryBtn").style.color = "black";
+    document.getElementById("deliveryBtn").style.filter = "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3))";
+    document.getElementById("pickupBtn").style.backgroundColor = "rgba(213, 213, 213, 1)";
+    document.getElementById("pickupBtn").style.color = "grey";
+    document.getElementById("pickupBtn").style.filter = "none";
+}
+
+function pickup() {
+    document.getElementById("deliveryBtn").style.backgroundColor = "rgba(213, 213, 213, 1)";
+    document.getElementById("deliveryBtn").style.color = "grey";
+    document.getElementById("deliveryBtn").style.filter = "none";
+    document.getElementById("pickupBtn").style.backgroundColor = "white";
+    document.getElementById("pickupBtn").style.color = "black";
+    document.getElementById("pickupBtn").style.filter = "drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3))";
+}

@@ -29,12 +29,24 @@
 
 .deliver-btn {
     display: flex;
+    color: grey;
     align-items: center;
     justify-content: center;
     border-radius: 100px;
     flex: 1;
     gap: 6px;
+    transition: var(--general-transition);
+}
+
+.deliver-btn:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.deliver-btn:first-child {
+    color: black;
     background-color: white;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
 }
 
 .deliver-btn-right {
