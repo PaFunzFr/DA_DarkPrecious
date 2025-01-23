@@ -1,17 +1,6 @@
 // GLOBAL VARIABLES
-//get from db.js and set to Storage
-let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
-
-// get from Storage and parse as array
-let dbFromStorage = JSON.parse(localStorage.getItem("database"));
-
-// initialize basket database
-if (!localStorage.getItem("basket")) {
-    localStorage.setItem("basket", JSON.stringify([]));
-}
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
 let shippingFee = 3.49;
-
 const containerIdCoffeFavourite = "favouriteProducts"
 const dbIndexCoffe = 0;
 const containerIdCoffe = "coffeeProducts";
@@ -20,6 +9,15 @@ const containerIdMachines = "machineProducts";
 const dbIndexEquipment = 2;
 const containerIdEquipment = "equipmentProducts";
 const containerIdBasket = "basket";
+
+//get from db.js and set to Storage
+let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
+// get from Storage and parse as array
+let dbFromStorage = JSON.parse(localStorage.getItem("database"));
+// initialize basket database
+if (!localStorage.getItem("basket")) {
+    localStorage.setItem("basket", JSON.stringify([]));
+}
 
 function renderInit() {
     renderAllProductCards()
@@ -108,12 +106,6 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
     renderBasketComplete();
 }
 
-function renderBasketComplete() {
-    updateBasket();
-    renderBasket(containerIdBasket);
-    renderTemplateTotal();
-}
-
 function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
     if (!selectedCoffeAmount && dbCategoryIndex === 0) {
         alert("Bitte wählen Sie eine Menge aus!");
@@ -138,6 +130,13 @@ function checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount) {
     } else {
         dbBasketFromStorage.push(createBasketObject(name, currentPrice, selectedCoffeAmount));
     }
+}
+
+// BASKET
+function renderBasketComplete() {
+    updateBasket();
+    renderBasket(containerIdBasket);
+    renderTemplateTotal();
 }
 
 function renderBasket(containerId) {
@@ -192,6 +191,21 @@ function sumBasket() {
 
 function convertNumber(number) {
     return number.toFixed(2).toString().replace('.', ',');
+}
+
+// BASKET COUNT BUTTONS
+function increaseCount(index) {
+    dbBasketFromStorage[index].amount ++;
+    renderBasketComplete();
+}
+
+function decreaseCount(index) {
+    if (dbBasketFromStorage[index].amount > 1) {
+        dbBasketFromStorage[index].amount --;
+    } else {
+    dbBasketFromStorage.splice(index, 1);
+    }
+    renderBasketComplete();
 }
 
 // SEARCH PRODUCTS

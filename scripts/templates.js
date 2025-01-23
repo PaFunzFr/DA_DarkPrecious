@@ -63,9 +63,9 @@ function renderSingleBasketCard(containerId, index) {
         <div class="item-notes-quantity">
             <button class="note-btn" onclick="showCommentInput(${index})">Anmerkung</button>
             <div class="count-btn">
-                <h3 class="less-btn">-</h3>
+                <h3 class="less-btn" onclick="decreaseCount(${index})">-</h3>
                 <p class="current-count">${dbBasketFromStorage[index].amount}</p>
-                <h3 class="more-btn">+</h3>
+                <h3 class="more-btn" onclick="increaseCount(${index})">+</h3>
             </div>
         </div>
         <div class="placed-note"><p id="note${index}">${dbBasketFromStorage[index].comment}</p></div>
