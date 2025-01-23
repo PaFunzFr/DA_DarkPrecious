@@ -56,7 +56,7 @@
                 <!-- rendered basket-cards here -->
             </ul>
         </div>
-        <section class="basket-total">
+        <section class="basket-total" id="basketTotal">
             <p class="current-price">Zwischensumme: <span>349,00 €</span></p>
             <p class="shipping-fee">Lieferkosten: <span>3,49€</span></p>
             <p class="total-price">Gesamt: <span>3,49€</span></p>
@@ -87,19 +87,14 @@
                     <img class="general-icons"src="./assets/img/03_products/clock-regular.svg">
                     <p>Dieser Shop öffnet um 8:00 Uhr. Bestelle jetzt und bekomme im Anschluss geliefert.</p>
                 </div>
-                <textarea class="search-food" maxlength="20"></textarea>
+                <textarea id="searchField" class="search-food" placeholder="Produkt suchen..." onkeyup="searchProducts()" maxlength="20"></textarea>
                 <ul class="food-categories">
-                    <li><a class="food-category" href="#refFavo">Beliebt</a></li>
                     <li><a class="food-category" href="#refCoff">Kaffebohnen</a></li>
                     <li><a class="food-category" href="#refMach">Kaffeemaschinen</a></li>
                     <li><a class="food-category" href="#refEqui">Zubehör</a></li>
                 </ul>
             </div>
             <div class="shop-products">
-                <h2 id="refFavo">Beliebt</h2>
-                <ul class="products-container" id="favouriteProducts">
-                    <!-- rendered product-cards here -->
-                </ul>
                 <h2 id="refCoff">Kaffeebohnen</h2>
                 <ul class="products-container" id="coffeeProducts">
                     <!-- rendered product-cards here -->

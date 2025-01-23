@@ -1,4 +1,3 @@
-
 // GLOBAL VARIABLES
 //get from db.js and set to Storage
 let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
@@ -11,10 +10,7 @@ if (!localStorage.getItem("basket")) {
     localStorage.setItem("basket", JSON.stringify([]));
 }
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
-
-// define categories of Storage
-let dbCoffe = dbFromStorage[0];
-let dbCoffeeMachines = dbFromStorage[1];
+let shippingFee = 3.49;
 
 const containerIdCoffeFavourite = "favouriteProducts"
 const dbIndexCoffe = 0;
@@ -23,28 +19,34 @@ const dbIndexMachines = 1;
 const containerIdMachines = "machineProducts";
 const dbIndexEquipment = 2;
 const containerIdEquipment = "equipmentProducts";
-
 const containerIdBasket = "basket";
 
-// Wenn ich dem Warenkorb hinzufüge übergebe nur releavante Informationen in datenbank (Storage) Warenkorb => Name, Preis, Anzahl in Warenkorb, Anmerkung
-// Wenn ich dem Warenkorb hinzufüge amountInStore -1, wenn amountInStore = 0 => produkt nicht mehr vorhanden
-
-
 function renderInit() {
-    renderProductCards(dbIndexCoffe, containerIdCoffe);
-    renderProductCards(dbIndexMachines, containerIdMachines);
-    renderProductCards(dbIndexEquipment, containerIdEquipment);
-
+    renderAllProductCards()
     renderBasket(containerIdBasket);
+    renderTemplateTotal();
 }
 
-
 // RENDER PRODUCT CARDS
-function renderProductCards(dbCategoryIndex, containerId) {
+function renderAllProductCards() {
+    for (i = 0; i < dbFromStorage.length; i++) {
+        if (i === 0) {
+            renderProductCardByCategory(i, containerIdCoffe);
+        }
+        if ( i === 1) {
+            renderProductCardByCategory(i, containerIdMachines);
+        }
+        if ( i === 2) {
+            renderProductCardByCategory(i, containerIdEquipment);
+        }
+    }
+}
+
+function renderProductCardByCategory(dbCategoryIndex, containerId) {
     getContainerById(containerId).innerHTML = "";
-    for (let i = 0; i < dbFromStorage[dbCategoryIndex].products.length; i ++) {
-        let dbProductData = dbFromStorage[dbCategoryIndex].products[i];
-        renderSingleProductCard(containerId, dbProductData, i);
+    for (let index = 0; index < dbFromStorage[dbCategoryIndex].products.length; index ++) {
+        let dbProductData = dbFromStorage[dbCategoryIndex].products[index];
+        renderSingleProductCard(dbCategoryIndex, containerId, dbProductData, index);
     }
 }
 
@@ -53,59 +55,88 @@ function getContainerById(id) {
 }
 
 // BUTTON COFFEE AMOUNT
-function chooseAmount(event, index) {
-    let newPrice = dbFromStorage[0].products[index].price * event.target.value;
-    if (event.target.dataset.clicked === "true") {
-        resetAllButtons(index);
-    } else {
-    resetAllButtons(index);
-    highlightButton(event, index, newPrice);
+function chooseAmount(event, dbCategoryIndex, index) {
+    let newPrice = dbFromStorage[dbCategoryIndex].products[index].price * event.target.value;
+    const selectedCoffeAmount = event.target.innerText;
+    resetAllButtons(dbCategoryIndex, index);
+    highlightButton(event, dbCategoryIndex, index, newPrice);
+    event.target.dataset.amount = selectedCoffeAmount;
+};
 
-}
-
-function resetAllButtons(index) {
-    document.getElementById(`priceTag${index}`).innerText = dbFromStorage[0].products[index].price.toFixed(2) +" €";
+function resetAllButtons(dbCategoryIndex, index) {
+    document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = dbFromStorage[0].products[index].price.toFixed(2) +" €";
     for (let i = 1; i < 4; i++) {
         const button = document.getElementById(`coffeAmount${index}${i}`);
         if (button) {
             button.dataset.clicked = "false";
+            button.removeAttribute("data-amount");
             button.style.backgroundColor = "";
             button.style.color = "";
         }
     }
-}};
+};
 
-function highlightButton(event, index, newPrice) {
+function highlightButton(event, dbCategoryIndex, index, newPrice) {
     event.target.dataset.clicked = "true";
     event.target.style.backgroundColor = "rgba(255, 140, 0, 1)";
     event.target.style.color = "black";
-    document.getElementById(`priceTag${index}`).innerText = newPrice.toFixed(2) +" €";
+    document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = convertNumber(newPrice) +" €";
 }
 
-// BASKET DATABASE AND FUNCTIONS
-function createBasketObject(productName, productPrice) {
+// BASKET DATABASE
+function updateBasket() {
+    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
+}
+
+function createBasketObject(productName, productPrice, selectedCoffeAmount) {
     return {
         productName: productName,
         amount: 1,
         price: productPrice,
-        comment: ""
+        comment: selectedCoffeAmount || ""
     }
 }
 
 // ADD TO & EDIT BASKET 
-function pushItemToBasket(name,index) {
-    let currentPrice = parseFloat(document.getElementById(`priceTag${index}`).innerText);
-    checkIfExistingInbasket(name, currentPrice);
-    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
-    renderBasket(containerIdBasket);
+function pushItemToBasket(dbCategoryIndex, name, index) {
+    let currentPrice = parseFloat(document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText);
+    let selectedCoffeAmount = checkForCoffeButtons(index);
+    if(!isAmountSelected(selectedCoffeAmount, dbCategoryIndex)) {
+        return;
+    };
+    checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount);
+    renderBasketComplete();
 }
 
-function checkIfExistingInbasket(name, currentPrice) {
+function renderBasketComplete() {
+    updateBasket();
+    renderBasket(containerIdBasket);
+    renderTemplateTotal();
+}
+
+function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
+    if (!selectedCoffeAmount && dbCategoryIndex === 0) {
+        alert("Bitte wählen Sie eine Menge aus!");
+        return false;
+    }
+    return true;
+}
+
+function checkForCoffeButtons(index) {
+    for (let i = 1; i < 4; i++) {
+        let button = document.getElementById(`coffeAmount${index}${i}`);
+        if (button.dataset.amount) {
+            return button.dataset.amount;
+        }
+    }
+}
+
+function checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount) {
     let existingProduct = dbBasketFromStorage.find(item => item.productName === name && item.price === currentPrice);
     if (existingProduct) {
         existingProduct.amount ++;
     } else {
-        dbBasketFromStorage.push(createBasketObject(name, currentPrice));
+        dbBasketFromStorage.push(createBasketObject(name, currentPrice, selectedCoffeAmount));
     }
 }
 
@@ -126,42 +157,16 @@ function checkForComments() {
             } else {
                 noteElement.style.display = "";
             }
-    }}
+        }
+    }   
 }
-
-function renderSingleBasketCard(containerId, index) {
-    getContainerById(containerId).innerHTML += `
-    <li class="basket-item" id="basketItem${index}">
-                    <div class="item-price">
-                        <h4>${dbBasketFromStorage[index].productName}</h4>
-                        <p class="price-tag">${dbBasketFromStorage[index].price * dbBasketFromStorage[index].amount} €</p>
-                    </div>
-                    <div class="item-notes-quantity">
-                        <button class="note-btn" onclick="showCommentInput(${index})">Anmerkung</button>
-                        <div class="count-btn">
-                            <h3 class="less-btn">-</h3>
-                            <p class="current-count">${dbBasketFromStorage[index].amount}</p>
-                            <h3 class="more-btn">+</h3>
-                        </div>
-                    </div>
-                    <div class="placed-note"><p id="note${index}">${dbBasketFromStorage[index].comment}</p></div>
-                    <div class="item-notes" id="commentContainer${index}">
-                        <textarea class="item-note" id="commentInput${index}" maxlength="160"></textarea>
-                        <div class="note-submit-container">
-                            <button class="note-btn" onclick="hideCommentInput(${index})">Abbrechen</button>
-                            <button class="note-btn" onclick="addComment(${index})">Hinzfügen</button>
-                        </div>
-                    </div>
-                </li>
-    `
-}
-/*
-console.log(dbCoffe.products);
-console.log(dbFromStorage.indexOf(dbCoffeeMachines));
-*/
 
 function showCommentInput(index) {
     document.getElementById(`commentContainer${index}`).style.display = "flex";
+    let isNote = document.getElementById(`note${index}`).innerText;
+    if ((isNote !== "")) {
+        document.getElementById(`commentInput${index}`).value = isNote;
+    }
 }
 
 function hideCommentInput(index) {
@@ -173,6 +178,55 @@ function addComment(index) {
     if (getInput !== "") { 
         dbBasketFromStorage[index].comment = getInput;
     }
-    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
+    updateBasket();
     renderBasket(containerIdBasket);
+}
+
+function sumBasket() {
+    let sum = 0;
+    for (let i = 0; i < dbBasketFromStorage.length; i++) {
+        sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount
+    }
+    return sum;
+}
+
+function convertNumber(number) {
+    return number.toFixed(2).toString().replace('.', ',');
+}
+
+// SEARCH PRODUCTS
+function searchProducts() {
+    const input = document.getElementById("searchField");
+    const filter = input.value.toUpperCase();
+    const productLists = document.querySelectorAll(".products-container");
+    buildArrayOfProducts(productLists, filter, input);
+}
+
+function buildArrayOfProducts(productLists, filter, input) {
+    for (let i = 0; i < productLists.length; i++) {
+        const ul = productLists[i];
+        const productList = Array.from(ul.getElementsByTagName("li"));
+        getEveryProductCard(productList, filter, input);
+    }
+}
+
+function getEveryProductCard(productList, filter, input) {
+    for (let j = 0; j < productList.length; j++) {
+        const singleProduct = productList[j];
+        const productTitle = singleProduct.querySelector("h3");
+        const description = singleProduct.querySelector(".product-description");
+        const categories = singleProduct.querySelector(".product-categories");
+        searchForMatches(filter, productTitle, description, categories, singleProduct);
+    }
+}
+
+function searchForMatches(filter, productTitle, description, categories, singleProduct) {
+    if (productTitle && description && categories) {
+        const matchesFilter = productTitle.innerText.toUpperCase().includes(filter) || description.innerText.toUpperCase().includes(filter) || categories.innerText.toUpperCase().includes(filter);
+        if (matchesFilter) {
+            singleProduct.style.display = "";
+        } else {
+            singleProduct.style.display = "none";
+        }
+    }
 }
