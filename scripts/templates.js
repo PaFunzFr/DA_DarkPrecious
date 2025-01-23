@@ -21,7 +21,16 @@ function renderTemplateProductsCoffee(dbProductData, index) {
     `
 }
 
-function productCardTop(dbProductData) {
+function productCardBottom(dbProductData, index) {
+    return `
+            <p class="product-price"><b id="priceTag${index}">${dbProductData.price.toFixed(2)} €</b> noch
+                <span class="in-storage" id="inStorage${index}">${dbProductData.amountInStore}</span> verfügbar</p>
+            <p class="product-categories">${dbProductData.categories.join(" | ")}</p>
+        </div>
+    </li>`
+}
+
+function productCardTop(dbProductData, index) {
     return `
     <li class="product-card shadow">
         <img src=${dbProductData.picture} alt="" class="product-img">
@@ -29,7 +38,7 @@ function productCardTop(dbProductData) {
             <div class="product-info">
                 <h3>${dbProductData.name}</h3>
                 <img class="general-icons" src="./assets/img/03_products/info.png">
-                <div class="add-product">+</div>
+                <div class="add-product" onclick="pushItemToBasket('${dbProductData.name}', ${index})">+</div>
             </div>
             <p class="product-description">${dbProductData.description}</p>`
 }
@@ -42,12 +51,5 @@ function productCardMiddle(index) {
                 <li class="coffee-amount" id="coffeAmount${index}3" onclick="chooseAmount(event, ${index})" value="4">1000g</li>
             </ul>`
 }
-function productCardBottom(dbProductData, index) {
-    return `
-            <p class="product-price"><b id="priceTag${index}">${dbProductData.price.toFixed(2)} €</b> noch
-                <span class="in-storage" id="inStorage${index}">${dbProductData.amountInStore}</span> verfügbar</p>
-            <p class="product-categories">${dbProductData.categories.join(" | ")}</p>
-        </div>
-    </li>`
-}
+
 

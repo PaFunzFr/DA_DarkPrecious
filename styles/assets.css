@@ -20,7 +20,7 @@
 .deliver-btn-container {
     display: flex;
     background-color: var(--col-border);
-    width: 300px;
+    width: 280px;
     height: 40px;
     padding: 3px;
     gap: 2px;

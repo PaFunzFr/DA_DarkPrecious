@@ -7,7 +7,9 @@ let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
 let dbFromStorage = JSON.parse(localStorage.getItem("database"));
 
 // initialize basket database
-let dbBasketToStorage = localStorage.setItem("basket", JSON.stringify([]));
+if (!localStorage.getItem("basket")) {
+    localStorage.setItem("basket", JSON.stringify([]));
+}
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
 
 // define categories of Storage
@@ -32,7 +34,7 @@ function renderInit() {
     renderProductCards(dbIndexCoffe, containerIdCoffe);
     renderProductCards(dbIndexMachines, containerIdMachines);
     renderProductCards(dbIndexEquipment, containerIdEquipment);
-    pushItemToBasket();
+
     renderBasket(containerIdBasket);
 }
 
@@ -90,30 +92,43 @@ function createBasketObject(productName, productPrice) {
     }
 }
 
-// ADD TO & EDIT BASKET
-function pushItemToBasket() {
-    dbBasketFromStorage.push(createBasketObject("TestMeister", 14.44));
+// ADD TO & EDIT BASKET 
+function pushItemToBasket(name,index) {
+    let currentPrice = parseFloat(document.getElementById(`priceTag${index}`).innerText);
+    checkIfExistingInbasket(name, currentPrice);
     localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
+    renderBasket(containerIdBasket);
 }
 
+function checkIfExistingInbasket(name, currentPrice) {
+    let existingProduct = dbBasketFromStorage.find(item => item.productName === name && item.price === currentPrice);
+    if (existingProduct) {
+        existingProduct.amount ++;
+    } else {
+        dbBasketFromStorage.push(createBasketObject(name, currentPrice));
+    }
+}
 
 function renderBasket(containerId) {
-    //getContainerById(containerId).innerHTML = "";
+    getContainerById(containerId).innerHTML = "";
     for (let i = 0; i < dbBasketFromStorage.length; i ++) {
         renderSingleBasketCard(containerId, i);
-        hideCommentField(i);
-    }
-
-}
-
-function hideCommentField(index) {
-    const noteElement = document.getElementById(`note${index}`);
-    if (dbBasketFromStorage[index].comment === "") {
-        noteElement.style.display = "none";
-    } else {
-        noteElement.style.display = ""; 
+        checkForComments();
     }
 }
+
+function checkForComments() {
+    for (let i = 0; i < dbBasketFromStorage.length; i++) {
+        const noteElement = document.getElementById(`note${i}`);
+        if (noteElement) {
+            if (dbBasketFromStorage[i].comment === "") {
+                noteElement.style.display = "none"; 
+            } else {
+                noteElement.style.display = "";
+            }
+    }}
+}
+
 function renderSingleBasketCard(containerId, index) {
     getContainerById(containerId).innerHTML += `
     <li class="basket-item" id="basketItem${index}">
@@ -122,7 +137,7 @@ function renderSingleBasketCard(containerId, index) {
                         <p class="price-tag">${dbBasketFromStorage[index].price * dbBasketFromStorage[index].amount} €</p>
                     </div>
                     <div class="item-notes-quantity">
-                        <button class="note-btn">Anmerkung</button>
+                        <button class="note-btn" onclick="showCommentInput(${index})">Anmerkung</button>
                         <div class="count-btn">
                             <h3 class="less-btn">-</h3>
                             <p class="current-count">${dbBasketFromStorage[index].amount}</p>
@@ -130,11 +145,11 @@ function renderSingleBasketCard(containerId, index) {
                         </div>
                     </div>
                     <div class="placed-note"><p id="note${index}">${dbBasketFromStorage[index].comment}</p></div>
-                    <div class="item-notes">
-                        <textarea class="item-note" maxlength="160"></textarea>
+                    <div class="item-notes" id="commentContainer${index}">
+                        <textarea class="item-note" id="commentInput${index}" maxlength="160"></textarea>
                         <div class="note-submit-container">
-                            <button class="note-btn">Abbrechen</button>
-                            <button class="note-btn">Hinzfügen</button>
+                            <button class="note-btn" onclick="hideCommentInput(${index})">Abbrechen</button>
+                            <button class="note-btn" onclick="addComment(${index})">Hinzfügen</button>
                         </div>
                     </div>
                 </li>
@@ -144,3 +159,20 @@ function renderSingleBasketCard(containerId, index) {
 console.log(dbCoffe.products);
 console.log(dbFromStorage.indexOf(dbCoffeeMachines));
 */
+
+function showCommentInput(index) {
+    document.getElementById(`commentContainer${index}`).style.display = "flex";
+}
+
+function hideCommentInput(index) {
+    document.getElementById(`commentContainer${index}`).style.display = "none";
+}
+
+function addComment(index) {
+    let getInput = document.getElementById(`commentInput${index}`).value;
+    if (getInput !== "") { 
+        dbBasketFromStorage[index].comment = getInput;
+    }
+    localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
+    renderBasket(containerIdBasket);
+}

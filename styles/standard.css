@@ -14,6 +14,8 @@
     --basket-width: 344px;
 
     --general-transition: all 0.3s ease;
+
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,6 +27,7 @@ body {
     font-weight: 500;
     font-size: 18px;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 main {
