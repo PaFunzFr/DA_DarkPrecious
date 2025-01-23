@@ -1,6 +1,7 @@
 // GLOBAL VARIABLES
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
 let shippingFee = 3.49;
+const stickyBottom = document.querySelector(".sticky-bottom");
 const containerIdCoffeFavourite = "favouriteProducts"
 const dbIndexCoffe = 0;
 const containerIdCoffe = "coffeeProducts";
@@ -18,6 +19,9 @@ let dbFromStorage = JSON.parse(localStorage.getItem("database"));
 if (!localStorage.getItem("basket")) {
     localStorage.setItem("basket", JSON.stringify([]));
 }
+
+window.onresize = showBasketOnWideScreen;
+window.onscroll = avoidingFooter;
 
 function renderInit() {
     renderAllProductCards()
@@ -41,6 +45,10 @@ function renderAllProductCards() {
     }
 }
 
+function getContainerById(id) {
+    return document.getElementById(id);
+}
+
 function renderProductCardByCategory(dbCategoryIndex, containerId) {
     getContainerById(containerId).innerHTML = "";
     for (let index = 0; index < dbFromStorage[dbCategoryIndex].products.length; index ++) {
@@ -49,18 +57,23 @@ function renderProductCardByCategory(dbCategoryIndex, containerId) {
     }
 }
 
-function getContainerById(id) {
-    return document.getElementById(id);
-}
-
 // BUTTON COFFEE AMOUNT
 function chooseAmount(event, dbCategoryIndex, index) {
+    if (event.target.dataset.clicked === "true") {
+        resetAllButtons(dbCategoryIndex, index);
+        return;
+    } else {
+        selectedAmount(event, dbCategoryIndex, index);
+    };
+};
+
+function selectedAmount(event, dbCategoryIndex, index) {
     let newPrice = dbFromStorage[dbCategoryIndex].products[index].price * event.target.value;
     const selectedCoffeAmount = event.target.innerText;
     resetAllButtons(dbCategoryIndex, index);
     highlightButton(event, dbCategoryIndex, index, newPrice);
     event.target.dataset.amount = selectedCoffeAmount;
-};
+}
 
 function resetAllButtons(dbCategoryIndex, index) {
     document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = dbFromStorage[0].products[index].price.toFixed(2) +" €";
@@ -103,6 +116,7 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
     if(!isAmountSelected(selectedCoffeAmount, dbCategoryIndex)) {
         return;
     };
+    popupBasket();
     checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount);
     renderBasketComplete();
 }
@@ -271,6 +285,10 @@ function pickup() {
     renderTemplateTotal();
 }
 
+function closeBasket() {
+    document.getElementById("basketContainer").style.display = "none";
+}
+
 function checkIfBasketEmpty() {
     if (dbBasketFromStorage.length > 0) {
         document.getElementById('deliveryContainer').style.display = "flex";
@@ -281,4 +299,59 @@ function checkIfBasketEmpty() {
         document.getElementById('basketTotal').style.display = "";
         document.getElementById('noProducts').style.display = "";
     }
+}
+
+// HIDE AND SHOW BASKET (on width)
+function showBasketOnWideScreen() {
+    if (window.innerWidth >= 900) {
+        document.getElementById("basketContainer").style.display = "flex";
+    }
+    document.getElementById("basketContainer").style.display = "";
+}
+
+// STICKY BOTTOM BUTTON
+function avoidingFooter() {
+    const windowHeight = window.innerHeight; 
+    const bodyHeight = document.body.offsetHeight; 
+    const scrollY = window.scrollY;
+    let distanceFromBottom = bodyHeight - (scrollY + windowHeight) - 20;
+    isBottomReached(distanceFromBottom);
+}
+
+function isBottomReached(distanceFromBottom) {
+    if (distanceFromBottom <= 100) {
+        stickyBottom.style.bottom = `${100 - distanceFromBottom}px`;
+    } else {
+        stickyBottom.style.bottom = "30px";
+    }
+}
+
+// POPUPS
+function showBasket() {
+    document.getElementById("basketContainer").style.display = "flex";
+}
+
+function popupBasket() {
+    const popup = document.getElementById("popupBasket");
+    if (popup) {
+        popup.style.display = "flex";
+        fadePopupIn(popup);
+        fadePopupOut(popup);
+    } 
+}
+
+function fadePopupIn(popup) {
+    setTimeout(() => {
+        popup.style.transition = "opacity 0.3s ease-in-out";
+        popup.style.opacity = "1";
+    }, 40);
+}
+
+function fadePopupOut(popup) {
+    setTimeout(() => {
+        popup.style.opacity = "0";
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 300);
+    }, 1000);
 }

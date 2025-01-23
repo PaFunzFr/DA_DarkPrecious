@@ -90,6 +90,7 @@
 .shop-section {
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 90px;
 }
 
 main {
@@ -286,6 +287,15 @@ main {
     top: 0;
 }
 
+.sticky-bottom {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    bottom: 0px; 
+    width: 100%;
+    text-align: center;
+}
+
 /* BASKET */
 .basket-section {
     display: flex;
@@ -323,7 +333,7 @@ main {
 
 .basket-summary {
     min-width: calc(var(--basket-width) - 2 * 30px);
-    margin-top: 100px;
+    margin-top: 115px;
     display: flex;
     overflow-y: auto;
     flex-direction: column;
@@ -450,6 +460,42 @@ main {
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 900px) {
+    .sticky {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+    }
+    .basket-content {
+        background-color: white;
+        padding: 10px;
+    }
+
+    .basket-section {
+        display: none;
+        border-top: 1px solid var(--col-border);
+        width: 100%;
+        right: 50%;
+        transform: translateX(50%);
+        background-color: rgba(221, 221, 221, 0.95);
+        min-height: 100vh;
+    }
+
+    .basket-total {
+        padding: 5px 10px 20px 10px;
+    }
+
+    main,
+    #popupBasket {
+        width: 100%;
+    }
+
+    .close-basket-btn,
+    .sticky-bottom  {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 800px) {
     .bg-logo {
         height: 300px;
@@ -467,37 +513,7 @@ main {
     }
 }
 
-@media screen and (max-width: 900px) {
-    .sticky {
-        position: fixed;
-        z-index: 100;
-        width: 100%;
-    }
-    .basket-content {
-        background-color: white;
-        padding: 10px;
-    }
-
-    .basket-section {
-        border-top: 1px solid var(--col-border);
-        width: 100%;
-        right: 50%;
-        transform: translateX(50%);
-        background-color: rgba(221, 221, 221, 0.95);
-        min-height: 100vh;
-    }
-
-    .basket-total {
-        padding: 5px 10px 20px 10px;
-    }
-
-    main {
-        width: 100%;
-    }
-}
-
 @media screen and (max-width: 550px) {
-
     .bg-logo {
         height: 230px;
     }

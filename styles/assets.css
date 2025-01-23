@@ -99,11 +99,74 @@ button:hover {
     text-decoration: underline;
 }
 
+.close-basket-btn {
+    display: none;
+    position: absolute;
+    right: 0;
+    top:10px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--col-light-text);
+    border: 1px solid var(--col-border);
+    border-radius: 100%;
+    user-select: none;
+    transition: var(--general-transition);
+}
+
+.close-basket-btn:hover {
+    text-decoration: none;
+    background-color: var(--col-complementary);
+}
+
+.to-basket-btn {
+    position: relative;
+    height: 50px;
+    width: 70%;
+    max-width: 340px;
+    background-color: var(--col-complementary);
+    border-radius: 100px;
+    font-family: 'Roboto Slab';
+    font-size: 24px;
+    color: white;
+}
+
+.to-basket-btn:hover {
+    text-decoration: none;
+    transform: scale(1.01);
+    filter: drop-shadow(3px 6px 7px rgba(0, 0, 0, 0.3));
+}
+
+#popupBasket {
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    top: 60px;
+    left: 0;
+    z-index: 100;
+    width: calc(100% - var(--basket-width));
+    height: 40px;
+    transition: var(--general-transition);
+}
+
+#popupBasket button {
+    font-size: 18px;
+    transition: all 0.3s ease;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.7);
+}
+
 /* GENERAL HOVER BUTTON */
 .less-btn:hover,
 .more-btn:hover {
     cursor: pointer;
     background-color: var(--col-border);
+}
+
+.info-btn:hover {
+    cursor: context-menu;
 }
 
 /* DROP SHADOW */
@@ -114,6 +177,3 @@ button:hover {
     filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
 }
 
-.info-btn:hover {
-    cursor: context-menu;
-}

@@ -31,9 +31,10 @@
         </section>
     </header>
     <div class="sticky">
-    <section class="basket-section">
+    <section class="basket-section" id="basketContainer">
         <div class="basket-header">
             <h2 class="basket-title">Warenkorb</h2>
+            <button onclick="closeBasket()" class="close-basket-btn">X</button>
             <div class="deliver-btn-container" id="deliveryContainer">
                 <div class="deliver-btn" id="deliveryBtn" onclick="delivery()">
                     <img class="general-icons" src="./assets/img/03_products/bike2.png">
@@ -110,6 +111,12 @@
                 </ul>
             </div>
         </section>
+        <div id="popupBasket">
+            <button>zum Warenkorb hinzugefügt!</button>
+        </div>
+        <div class="sticky-bottom">
+            <button class="to-basket-btn" onclick="showBasket()">Warenkorb</button>
+        </div>
     </main>
 
     <footer>
