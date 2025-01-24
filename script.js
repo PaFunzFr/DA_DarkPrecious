@@ -1,6 +1,12 @@
-// GLOBAL VARIABLES
+//GLOBAL VARIABLES
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
 let shippingFee = 3.49;
+let isMenuOpen = false;
+let resetTimer;
+const sidebar = document.getElementById("sidebarMenu");
+const hamLine1 = document.getElementById("ham1");
+const hamLine2 = document.getElementById("ham2");
+const hamLine3 = document.getElementById("ham3");
 const stickyBottom = document.querySelector(".sticky-bottom");
 const containerIdCoffeFavourite = "favouriteProducts"
 const dbIndexCoffe = 0;
@@ -13,9 +19,9 @@ const containerIdBasket = "basket";
 
 //get from db.js and set to Storage
 let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
-// get from Storage and parse as array
+//get from Storage and parse as array
 let dbFromStorage = JSON.parse(localStorage.getItem("database"));
-// initialize basket database
+//initialize basket database
 if (!localStorage.getItem("basket")) {
     localStorage.setItem("basket", JSON.stringify([]));
 }
@@ -30,7 +36,7 @@ function renderInit() {
     checkIfBasketEmpty();
 }
 
-// RENDER PRODUCT CARDS
+//RENDER PRODUCT CARDS
 function renderAllProductCards() {
     for (i = 0; i < dbFromStorage.length; i++) {
         if (i === 0) {
@@ -57,7 +63,7 @@ function renderProductCardByCategory(dbCategoryIndex, containerId) {
     }
 }
 
-// BUTTON COFFEE AMOUNT
+//BUTTON COFFEE AMOUNT
 function chooseAmount(event, dbCategoryIndex, index) {
     if (event.target.dataset.clicked === "true") {
         resetAllButtons(dbCategoryIndex, index);
@@ -95,7 +101,7 @@ function highlightButton(event, dbCategoryIndex, index, newPrice) {
     document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = convertNumber(newPrice) +" €";
 }
 
-// BASKET DATABASE
+//BASKET DATABASE
 function updateBasket() {
     localStorage.setItem("basket", JSON.stringify(dbBasketFromStorage));
 }
@@ -109,7 +115,7 @@ function createBasketObject(productName, productPrice, selectedCoffeAmount) {
     }
 }
 
-// ADD TO & EDIT BASKET 
+//ADD TO & EDIT BASKET 
 function pushItemToBasket(dbCategoryIndex, name, index) {
     let currentPrice = parseFloat(document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText);
     let selectedCoffeAmount = checkForCoffeButtons(index);
@@ -147,7 +153,7 @@ function checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount) {
     }
 }
 
-// BASKET
+//BASKET
 function renderBasketComplete() {
     checkIfBasketEmpty()
     updateBasket();
@@ -209,7 +215,7 @@ function convertNumber(number) {
     return number.toFixed(2).toString().replace('.', ',');
 }
 
-// BASKET COUNT BUTTONS
+//BASKET COUNT BUTTONS
 function increaseCount(index) {
     dbBasketFromStorage[index].amount ++;
     renderBasketComplete();
@@ -224,7 +230,7 @@ function decreaseCount(index) {
     renderBasketComplete();
 }
 
-// SEARCH PRODUCTS
+//SEARCH PRODUCTS
 function searchProducts() {
     const input = document.getElementById("searchField");
     const filter = input.value.toUpperCase();
@@ -261,7 +267,7 @@ function searchForMatches(filter, productTitle, description, categories, singleP
     }
 }
 
-// BASKET BUTTONS
+//BASKET BUTTONS
 function toggleButton(activeBtnId, inactiveBtnId) {
     const activeBtn = document.getElementById(activeBtnId);
     const inactiveBtn = document.getElementById(inactiveBtnId);
@@ -301,7 +307,7 @@ function checkIfBasketEmpty() {
     }
 }
 
-// HIDE AND SHOW BASKET (on width)
+//HIDE AND SHOW BASKET (on width)
 function showBasketOnWideScreen() {
     if (window.innerWidth >= 900) {
         document.getElementById("basketContainer").style.display = "flex";
@@ -309,7 +315,7 @@ function showBasketOnWideScreen() {
     document.getElementById("basketContainer").style.display = "";
 }
 
-// STICKY BOTTOM BUTTON
+//STICKY BOTTOM BUTTON
 function avoidingFooter() {
     const windowHeight = window.innerHeight; 
     const bodyHeight = document.body.offsetHeight; 
@@ -326,7 +332,7 @@ function isBottomReached(distanceFromBottom) {
     }
 }
 
-// POPUPS
+//POPUPS
 function showBasket() {
     document.getElementById("basketContainer").style.display = "flex";
 }
@@ -354,4 +360,59 @@ function fadePopupOut(popup) {
             popup.style.display = "none";
         }, 300);
     }, 1000);
+}
+
+//SIDEBAR-MENU
+function openMenu() {
+    clearTimeout(resetTimer);
+    if (!isMenuOpen) {
+        transformBtnToX();
+        openSidebar();
+        isMenuOpen = true;
+        autoCloseMenu();
+    } else {
+        transformBtnReset();
+        closeSidebar();
+        isMenuOpen = false;
+    }
+}
+
+function transformBtnToX() {
+    hamLine1.style.transform = "rotate(45deg) translate(11px, 5px)";
+    hamLine2.style.opacity = "0";
+    hamLine3.style.transform = "rotate(-45deg) translate(11px, -5px)";
+}
+
+function transformBtnReset() {
+    hamLine1.style.transform = "rotate(0) translate(0, 0)";
+    hamLine2.style.opacity = "1";
+    hamLine3.style.transform = "rotate(0) translate(0, 0)";
+};
+
+function autoCloseMenu() {
+    resetTimer = setTimeout(() => {
+        transformBtnReset();
+        closeSidebar();
+        isMenuOpen = false;
+    }, 3000);
+}
+
+function openSidebar() {
+    sidebar.style.transform = "translateY(0)";
+}
+
+function closeSidebar() {
+    sidebar.style.transform = "";
+}
+
+function darkPrecious() {
+    alert("Dark Precious ist super!");
+}
+//ORDER BUTTON
+function order() {
+    if (sumBasket() < 25) {
+        alert("Mindestbestellwert liegt bei 25€");
+    } else {
+    alert("Bestellung gesendet!");
+    }
 }

@@ -97,6 +97,9 @@ footer .container {
 .footer-icon:hover {
     background-color: var(--col-light-text);
 }
+.scroll-margin {
+    scroll-margin-top: 20px;
+}
 
 /* TEXT ELEMENTS */
 a {
@@ -161,6 +164,7 @@ ul {
     background-color: var(--col-complementary);
     margin: 6px 0;
     border-radius: 5px;
+    transition: var(--general-transition);
 }
 
 .ham-menu-btn {

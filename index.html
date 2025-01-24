@@ -23,49 +23,64 @@
             </div>
             <ul class="nav-bar">
                 <li class="ham-menu-btn" id="menuButton" onclick="openMenu()">
-                    <div class="ham-line"></div>
-                    <div class="ham-line"></div>
-                    <div class="ham-line"></div>
+                    <div class="ham-line" id="ham1"></div>
+                    <div class="ham-line" id="ham2"></div>
+                    <div class="ham-line" id="ham3"></div>
                 </li>
             </ul>
         </section>
     </header>
+
     <div class="sticky">
-    <section class="basket-section" id="basketContainer">
-        <div class="basket-header">
-            <h2 class="basket-title">Warenkorb</h2>
-            <button onclick="closeBasket()" class="close-basket-btn">X</button>
-            <div class="deliver-btn-container" id="deliveryContainer">
-                <div class="deliver-btn" id="deliveryBtn" onclick="delivery()">
-                    <img class="general-icons" src="./assets/img/03_products/bike2.png">
-                    <div class="deliver-btn-right">
-                        <h4>Lieferung</h4>
-                        <p class="delivery-info">ab 25€</p>
+        <section class="basket-section" id="basketContainer">
+            <div class="basket-header">
+                <h2 class="basket-title">Warenkorb</h2>
+                <button onclick="closeBasket()" class="close-basket-btn">X</button>
+                <div class="deliver-btn-container" id="deliveryContainer">
+                    <div class="deliver-btn" id="deliveryBtn" onclick="delivery()">
+                        <img class="general-icons" src="./assets/img/03_products/bike2.png">
+                        <div class="deliver-btn-right">
+                            <h4>Lieferung</h4>
+                            <p class="delivery-info">ab 25€</p>
+                        </div>
                     </div>
-                </div>
-                <div class="deliver-btn" id="pickupBtn" onclick="pickup()">
-                    <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
-                    <div class="deliver-btn-right">
-                        <h4>Abholung</h4>
-                        <p class="delivery-info">ab 13:00</p>
+                    <div class="deliver-btn" id="pickupBtn" onclick="pickup()">
+                        <img class="general-icons"src="./assets/img/03_products/delivery-cost.png">
+                        <div class="deliver-btn-right">
+                            <h4>Abholung</h4>
+                            <p class="delivery-info">ab 13:00</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="basket-content">
-            <ul class="basket-summary" id="basket">
-                <!-- rendered basket-cards here -->
-            </ul>
-        </div>
-        <section class="basket-total" id="basketTotal">
-                <!-- rendered total here -->
+            <div class="basket-content">
+                <ul class="basket-summary" id="basket">
+                    <!-- rendered basket-cards here -->
+                </ul>
+            </div>
+            <div class="basket-total" id="basketTotal">
+                    <!-- rendered total here -->
+            </div>
+            <div class="empty-basket" id="noProducts">
+                <img src="./assets/img/03_products/basket.png" alt="">
+                <p>Dein Warenkorb ist leer.</p>
+            </div>
         </section>
-        <div class="empty-basket" id="noProducts">
-            <img src="./assets/img/03_products/basket.png" alt="">
-            <p>Dein Warenkorb ist leer.</p>
+    </div>
+
+    <section class="sidebar-section" id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Menü</h2>
         </div>
+        <div class="h-line"></div>
+        <ul class="sidebar-links">
+            <li><a href="#about" onclick="closeSidebar(), darkPrecious()">Über Dark Precious</a></li>
+            <li><a href="#refCoff" onclick="closeSidebar()">Kaffeebohnen</a></li>
+            <li><a href="#refMach" onclick="closeSidebar()">Kaffeemaschinen</a></li>
+            <li><a href="#refEqui" onclick="closeSidebar()">Zubehör</a></li>
+            <li><a href="#footer" onclick="closeSidebar()">Kontakt</a></li>
+        </ul>
     </section>
-</div>
 
     <main>
         <div class="bg-logo">
@@ -97,15 +112,15 @@
                 </ul>
             </div>
             <div class="shop-products">
-                <h2 id="refCoff">Kaffeebohnen</h2>
+                <h2 id="refCoff" class="scroll-margin">Kaffeebohnen</h2>
                 <ul class="products-container" id="coffeeProducts">
                     <!-- rendered product-cards here -->
                 </ul>
-                <h2 id="refMach">Kaffeemaschinen</h2>
+                <h2 id="refMach" class="scroll-margin">Kaffeemaschinen</h2>
                 <ul class="products-container" id="machineProducts">
                     <!-- rendered product-cards here -->
                 </ul>
-                <h2 id="refEqui">Zubehör</h2>
+                <h2 id="refEqui" class="scroll-margin">Zubehör</h2>
                 <ul class="products-container" id="equipmentProducts">
                     <!-- rendered product-cards here -->                    
                 </ul>
@@ -119,7 +134,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer id="footer">
         <section class="container">
                 <ul class="social-media-icons">
                     <li>

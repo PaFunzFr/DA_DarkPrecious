@@ -86,6 +86,6 @@ function renderTemplateTotal() {
             <p class="current-price">Zwischensumme: <span>${convertNumber(sumBasket())} €</span></p>
             <p class="shipping-fee">Lieferkosten: <span>${convertNumber(shippingFee)} €</span></p>
             <p class="total-price">Gesamt: <span>${convertNumber(finalCost)} €</span></p>
-            <h2>Bezahlen ${convertNumber(finalCost)} €</h2>
+            <h2 onclick="order()">Bezahlen ${convertNumber(finalCost)} €</h2>
     `;
 }
