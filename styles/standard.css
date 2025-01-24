@@ -66,6 +66,7 @@ footer {
     z-index: 99;
     color: var(--col-secondary);
     font-size: 12px;
+    text-align: center;
 }
 
 .social-media-icons {

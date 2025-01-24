@@ -180,6 +180,6 @@ button:hover {
     transition: var(--general-transition);
 }
 .shadow:hover {
-    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.4));
 }
 

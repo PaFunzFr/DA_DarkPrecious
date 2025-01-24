@@ -296,6 +296,60 @@ main {
     text-align: center;
 }
 
+#infoA {
+    position: relative;
+}
+
+#infoA::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "DarkPrecious – Entdecke die stärksten und sortenreinsten Kaffees für echte Genießer. Seit 1976 vereinen wir Tradition, Qualität und unvergleichlichen Geschmack.";
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    width: 200px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid var(--col-border);
+    top: -110px;
+    left: -210px;
+    z-index: 50;
+    padding: 10px;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* COFFE AMOUNT ALERT */
+.amount-alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100px;
+    margin: 0 auto;
+    width: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.3));
+    border-top: 1px solid var(--col-border);
+    border-bottom: 1px solid var(--col-border);
+    z-index: 100;
+}
+
+.amount-alert p {
+    background-color: green;
+    border-radius: 10px;
+    border: 1px solid var(--col-border);
+    background-color: var(--col-highlight);
+    padding: 15px 30px;
+    max-width: 260px;
+    margin: 0 10px;
+    font-family: 'Roboto Slab';
+    color: white;
+    font-size: 14px;
+}
+
 /* BASKET */
 .basket-section {
     display: flex;
@@ -448,17 +502,46 @@ main {
 
 .empty-basket {
     display: flex;
+    z-index: 10;
+}
+
+.bought-products {
+    display: flex;
+    z-index: 11;
+}
+
+.empty-basket,
+.bought-products {
     position: absolute;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     top: 100px;
-    height: 200px;
+    height: 400px;
+    background-color: white;
+}
+
+.bought-products button {
+    text-decoration: none;
+    background-color: var(--col-complementary);
+    font-size: 16px;
+    font-family: 'Roboto Slab';
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: white;
 }
 
 .empty-basket img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+} 
+
+.bought-products img {
+    width: 240px;
+    height: 200px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
@@ -585,5 +668,9 @@ main {
 
     .basket-total h2, .to-basket-btn {
         font-size: 18px;
+    }
+
+    .amount-alert p {
+        font-size: 12px;
     }
 }

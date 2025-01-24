@@ -224,7 +224,7 @@ function sumBasket() {
 }
 
 function convertNumber(number) {
-    return number.toFixed(2).toString().replace('.', ',');
+    return number.toFixed(2).replace('.', ',');
 }
 
 //BASKET COUNT BUTTONS
@@ -339,7 +339,7 @@ function avoidingFooter() {
 
 function isBottomReached(distanceFromBottom) {
     if (distanceFromBottom <= 100) {
-        stickyBottom.style.bottom = `${100 - distanceFromBottom}px`;
+        stickyBottom.style.bottom = `${125 - distanceFromBottom}px`;
     } else {
         stickyBottom.style.bottom = "30px";
     }
@@ -431,5 +431,6 @@ function order() {
     dbBasketFromStorage = [];
     updateBasket();
     renderBasketComplete();
+    renderBasketButton()
     }
 }
