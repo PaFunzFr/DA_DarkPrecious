@@ -68,7 +68,7 @@
             <div class="bought-products" id="boughtProducts">
                 <img src="./assets/img/03_products/coffee.gif" alt="">
                 <p>Vielen Dank für deinen Einkauf!</p>
-                <button class="shadow">Weiter Einkaufen</button>
+                <button class="shadow" onclick="continueShopping()">Weiter Einkaufen</button>
             </div>
         </section>
     </div>
@@ -98,9 +98,8 @@
             <div class="intro-text">
                 <div class="shop-title">
                     <h2>Dark Precious</h2>
-                    <div id="infoA">
-                        <img class="general-icons info-btn" src="./assets/img/03_products/info.png" title="Die stärksten und sortenreinsten Kaffees für echte Liebhaber, seit 1976">
-                    </div>
+                    <div id="infoShop"></div>
+                    <img onmouseenter="showInfo()" onmouseleave="hideInfo()" class="general-icons info-btn" src="./assets/img/03_products/info.png">
                 </div>
                 <ul class="shop-infos">
                     <li><img class="general-icons"src="./assets/img/03_products/rating_color.png"><span>4,2</span> (200+)</li>
@@ -138,7 +137,7 @@
         </div>
         <div class="sticky-bottom" id="toBasketBtn">
         </div>
-        <div class="amount-alert" id="amountAlert">
+        <div class="info-dropdown" id="infoDropdown">
             <p>Bitte wähle eine Menge Bohnen aus!</p>
         </div>
     </main>

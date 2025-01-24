@@ -12,6 +12,10 @@ const containerIdMachines = "machineProducts";
 const dbIndexEquipment = 2;
 const containerIdEquipment = "equipmentProducts";
 const containerIdBasket = "basket";
+const messageShippingFee = "Mindestbestellwert liegt bei 25€";
+const messageOrdered = "Bestellung gesendet";
+const messageCoffeeAmount = "Bitte wählen Sie eine Menge aus";
+const messageAboutShop = "Dark Precious ist super";
 
 //get from db.js and set to Storage
 let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
@@ -139,7 +143,7 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
 
 function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
     if (!selectedCoffeAmount && dbCategoryIndex === 0) {
-        alert("Bitte wählen Sie eine Menge aus!");
+        showInfoDropDown(messageCoffeeAmount);
         return false;
     }
     return true;
@@ -419,18 +423,45 @@ function closeSidebar() {
 }
 
 function aboutDarkPrecious() {
-    alert("Dark Precious ist super!");
+    showInfoDropDown(messageAboutShop);
 }
 
 //ORDER BUTTON
 function order() {
     if (sumBasket() < 25) {
-        alert("Mindestbestellwert liegt bei 25€");
+        showInfoDropDown(messageShippingFee);
     } else {
-    alert("Bestellung gesendet!");
+    showInfoDropDown(messageOrdered);
+    thanksForShopping();
     dbBasketFromStorage = [];
     updateBasket();
     renderBasketComplete();
     renderBasketButton()
     }
+}
+
+function showInfo() {
+    document.getElementById("infoShop").style.display = "block";   
+}
+function hideInfo() {
+    document.getElementById("infoShop").style.display = "";  
+}
+
+function showInfoDropDown(message) {
+    document.getElementById("infoDropdown").style.top = "0";
+    document.getElementById("infoDropdown").innerHTML = `<p>${message}!</p>`;
+    setTimeout(() => {
+        document.getElementById("infoDropdown").style.top = "-100%";
+        }, 2000);
+}
+
+function thanksForShopping() {
+    document.getElementById("boughtProducts").style.display = "flex";
+    setTimeout(() => {
+        document.getElementById("boughtProducts").style.display = "";
+        }, 7000);
+}
+
+function continueShopping() {
+    document.getElementById("boughtProducts").style.display = "";
 }
