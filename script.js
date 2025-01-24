@@ -405,9 +405,10 @@ function closeSidebar() {
     sidebar.style.transform = "";
 }
 
-function darkPrecious() {
+function aboutDarkPrecious() {
     alert("Dark Precious ist super!");
 }
+
 //ORDER BUTTON
 function order() {
     if (sumBasket() < 25) {
