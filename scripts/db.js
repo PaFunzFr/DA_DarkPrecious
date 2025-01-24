@@ -93,7 +93,7 @@ let database = [
         ],
     },
     {
-        category: "Alles rund um Kaffeemaschinen",
+        category: "Kaffeemaschinen",
         products: [
             {
             name: "Brewzilla",

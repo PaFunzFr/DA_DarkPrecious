@@ -1,9 +1,4 @@
-//GLOBAL VARIABLES
-let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket")) || [];
-let shippingFee = 3.49;
-let finalCost = sumBasket() + shippingFee;
-let isMenuOpen = false;
-let resetTimer;
+//GLOBAL CONST
 const sidebar = document.getElementById("sidebarMenu");
 const hamLine1 = document.getElementById("ham1");
 const hamLine2 = document.getElementById("ham2");
@@ -23,12 +18,20 @@ let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
 //get from Storage and parse as array
 let dbFromStorage = JSON.parse(localStorage.getItem("database"));
 //initialize basket database
+let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket")) || [];
 function buildDbBasket() {
     if (!localStorage.getItem("basket")) {
         localStorage.setItem("basket", JSON.stringify([]));
     }
 }
 
+//GLOBAL LET
+let shippingFee = 3.49;
+let finalCost = sumBasket() + shippingFee;
+let isMenuOpen = false;
+let resetTimer;
+
+//GLOBAL EVENTS
 window.onresize = showBasketOnWideScreen;
 window.onscroll = avoidingFooter;
 
@@ -212,7 +215,7 @@ function addComment(index) {
 
 function sumBasket() {
     let sum = 0;
-    if (dbBasketFromStorage.length > 0) {
+    if (dbBasketFromStorage.length !== 0) {
         for (let i = 0; i < dbBasketFromStorage.length; i++) {
             sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount;
         }
