@@ -139,6 +139,7 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
     renderBasketComplete();
     renderBasketButton();
     resetAllButtons(0, index);
+    continueShopping();
 }
 
 function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {

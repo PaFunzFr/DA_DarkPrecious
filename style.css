@@ -535,9 +535,9 @@ main {
 }
 
 .empty-basket img {
-    width: 70px;
-    height: 80px;
-    margin-bottom: 20px;
+    width: 50px;
+    height: 60px;
+    margin-bottom: 10px;
 } 
 
 .bought-products img {
