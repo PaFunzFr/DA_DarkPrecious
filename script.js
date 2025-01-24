@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
+let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket")) || [];
 let shippingFee = 3.49;
 let finalCost = sumBasket() + shippingFee;
 let isMenuOpen = false;
@@ -212,15 +212,12 @@ function addComment(index) {
 
 function sumBasket() {
     let sum = 0;
-
     if (dbBasketFromStorage.length > 0) {
-    for (let i = 0; i < dbBasketFromStorage.length; i++) {
-        sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount;
-    }
-
+        for (let i = 0; i < dbBasketFromStorage.length; i++) {
+            sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount;
+        }
     }
     return sum;
-
 }
 
 function convertNumber(number) {
@@ -309,7 +306,7 @@ function closeBasket() {
 }
 
 function checkIfBasketEmpty() {
-    if (dbBasketFromStorage.length > 0) {
+    if (dbBasketFromStorage.length !== 0) {
         document.getElementById('deliveryContainer').style.display = "flex";
         document.getElementById('basketTotal').style.display = "flex";
         document.getElementById('noProducts').style.display = "none";
