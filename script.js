@@ -1,6 +1,7 @@
 //GLOBAL VARIABLES
 let dbBasketFromStorage = JSON.parse(localStorage.getItem("basket"));
 let shippingFee = 3.49;
+let finalCost = sumBasket() + shippingFee;
 let isMenuOpen = false;
 let resetTimer;
 const sidebar = document.getElementById("sidebarMenu");
@@ -22,14 +23,18 @@ let dbToStorage = localStorage.setItem("database", JSON.stringify(database));
 //get from Storage and parse as array
 let dbFromStorage = JSON.parse(localStorage.getItem("database"));
 //initialize basket database
-if (!localStorage.getItem("basket")) {
-    localStorage.setItem("basket", JSON.stringify([]));
+function buildDbBasket() {
+    if (!localStorage.getItem("basket")) {
+        localStorage.setItem("basket", JSON.stringify([]));
+    }
 }
 
 window.onresize = showBasketOnWideScreen;
 window.onscroll = avoidingFooter;
 
 function renderInit() {
+    buildDbBasket();
+    renderBasketButton();
     renderAllProductCards()
     renderBasket(containerIdBasket);
     renderTemplateTotal();
@@ -125,6 +130,8 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
     popupBasket();
     checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount);
     renderBasketComplete();
+    renderBasketButton();
+    resetAllButtons(dbCategoryIndex, index);
 }
 
 function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
@@ -205,10 +212,15 @@ function addComment(index) {
 
 function sumBasket() {
     let sum = 0;
+
+    if (dbBasketFromStorage.length > 0) {
     for (let i = 0; i < dbBasketFromStorage.length; i++) {
-        sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount
+        sum += dbBasketFromStorage[i].price * dbBasketFromStorage[i].amount;
+    }
+
     }
     return sum;
+
 }
 
 function convertNumber(number) {
@@ -228,6 +240,7 @@ function decreaseCount(index) {
         dbBasketFromStorage.splice(index, 1);
     }
     renderBasketComplete();
+    renderBasketButton();
 }
 
 //SEARCH PRODUCTS
@@ -415,5 +428,8 @@ function order() {
         alert("Mindestbestellwert liegt bei 25€");
     } else {
     alert("Bestellung gesendet!");
+    dbBasketFromStorage = [];
+    updateBasket();
+    renderBasketComplete();
     }
 }

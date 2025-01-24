@@ -385,6 +385,8 @@ main {
     cursor:pointer;
     transition: var(--general-transition);
     color: var(--col-light-text);
+    width: calc(100% - 52px);
+    text-align: center;
 }
 
 .basket-total h2:hover {
@@ -581,7 +583,7 @@ main {
         padding: 0 10px;
     }
 
-    .basket-total h2 {
+    .basket-total h2, .to-basket-btn {
         font-size: 18px;
     }
 }

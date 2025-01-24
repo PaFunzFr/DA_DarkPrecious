@@ -169,6 +169,12 @@ button:hover {
     cursor: context-menu;
 }
 
+#popupBasket button:hover {
+    text-decoration: none;
+    user-select: none;
+    cursor: auto;
+}
+
 /* DROP SHADOW */
 .shadow {
     transition: var(--general-transition);
