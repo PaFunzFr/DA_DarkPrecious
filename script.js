@@ -134,7 +134,7 @@ function pushItemToBasket(dbCategoryIndex, name, index) {
     checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount);
     renderBasketComplete();
     renderBasketButton();
-    resetAllButtons(dbCategoryIndex, index);
+    resetAllButtons(0, index);
 }
 
 function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
