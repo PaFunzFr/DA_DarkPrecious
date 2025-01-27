@@ -58,7 +58,7 @@ function renderSingleBasketCard(containerId, index) {
     <li class="basket-item" id="basketItem${index}">
         <div class="item-price">
             <h4>${dbBasketFromStorage[index].productName}</h4>
-            <p class="price-tag">${basketPriceFormatted.toString().replace('.', ',')} €</p>
+            <p class="price-tag">${basketPriceFormatted.replace('.', ',')} €</p>
         </div>
         <div class="item-notes-quantity">
             <button class="note-btn" onclick="showCommentInput(${index})">Anmerkung</button>

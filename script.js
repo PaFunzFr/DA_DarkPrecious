@@ -129,20 +129,20 @@ function createBasketObject(productName, productPrice, selectedCoffeAmount) {
 
 //ADD TO & EDIT BASKET 
 function pushItemToBasket(dbCategoryIndex, name, index) {
-    let currentPrice = parseFloat(document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText);
-    let selectedCoffeAmount = checkForCoffeButtons(index);
-    if(!isAmountSelected(selectedCoffeAmount, dbCategoryIndex)) {
+    let currentPrice = parseFloat(document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText.replace(',', '.'));
+    let selectedCoffeAmount = setAmountToButton(index);
+    if(!hasSelectedAmount(selectedCoffeAmount, dbCategoryIndex)) {
         return;
     };
     popupBasket();
-    checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount);
+    checkIfNewObject(name, currentPrice, selectedCoffeAmount);
     renderBasketComplete();
     renderBasketButton();
     resetAllButtons(0, index);
     continueShopping();
 }
 
-function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
+function hasSelectedAmount(selectedCoffeAmount, dbCategoryIndex) {
     if (!selectedCoffeAmount && dbCategoryIndex === 0) {
         showInfoDropDown(messageCoffeeAmount);
         return false;
@@ -150,7 +150,7 @@ function isAmountSelected(selectedCoffeAmount, dbCategoryIndex) {
     return true;
 }
 
-function checkForCoffeButtons(index) {
+function setAmountToButton(index) {
     for (let i = 1; i < 4; i++) {
         let button = document.getElementById(`coffeAmount${index}${i}`);
         if (button.dataset.amount) {
@@ -159,7 +159,7 @@ function checkForCoffeButtons(index) {
     }
 }
 
-function checkIfExistingInbasket(name, currentPrice, selectedCoffeAmount) {
+function checkIfNewObject(name, currentPrice, selectedCoffeAmount) {
     let existingProduct = dbBasketFromStorage.find(item => item.productName === name && item.price === currentPrice);
     if (existingProduct) {
         existingProduct.amount ++;
