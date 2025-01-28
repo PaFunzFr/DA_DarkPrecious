@@ -133,7 +133,7 @@ button:hover {
 }
 
 .order-btn:hover,
-.basket-btn  {
+.basket-btn:hover  {
     text-decoration: none;
     transform: scale(1.01);
     filter: drop-shadow(3px 6px 7px rgba(0, 0, 0, 0.3));
@@ -142,6 +142,7 @@ button:hover {
 #popupBasket {
     justify-content: center;
     position: fixed;
+    transform: translateY(-200px);
     opacity: 0;
     top: 60px;
     left: 0;

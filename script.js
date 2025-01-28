@@ -95,7 +95,7 @@ function selectedAmount(event, dbCategoryIndex, index) {
 }
 
 function resetAllButtons(dbCategoryIndex, index) {
-    document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = dbFromStorage[0].products[index].price.toFixed(2) +" €";
+    document.getElementById(`priceTag${dbCategoryIndex}${index}`).innerText = convertNumber(dbFromStorage[dbCategoryIndex].products[index].price) +" €";
     for (let i = 1; i < 4; i++) {
         const button = document.getElementById(`coffeAmount${index}${i}`);
         if (button) {
@@ -361,6 +361,7 @@ function popupBasket() {
     const popup = document.getElementById("popupBasket");
     if (popup) {
         popup.style.display = "flex";
+        popup.style.transform = "translateY(0)";
         fadePopupIn(popup);
         fadePopupOut(popup);
     } 
