@@ -46,6 +46,7 @@ function renderInit() {
     renderBasket(containerIdBasket);
     renderTemplateTotal();
     checkIfBasketEmpty();
+    checkTotal();
 }
 
 //RENDER PRODUCT CARDS
@@ -174,6 +175,7 @@ function renderBasketComplete() {
     updateBasket();
     renderBasket(containerIdBasket);
     renderTemplateTotal();
+    checkTotal();
 }
 
 function renderBasket(containerId) {
@@ -429,15 +431,29 @@ function aboutDarkPrecious() {
 
 //ORDER BUTTON
 function order() {
-    if (sumBasket() < 25) {
-        showInfoDropDown(messageShippingFee);
-    } else {
     showInfoDropDown(messageOrdered);
     thanksForShopping();
     dbBasketFromStorage = [];
     updateBasket();
     renderBasketComplete();
     renderBasketButton()
+}
+
+function disableButton(boolean, opacity, cursor) {
+    let disabledButton = document.querySelectorAll(".order-btn");
+    disabledButton.forEach((element) => {
+        element.disabled = boolean;
+        element.style.opacity = opacity;
+        element.style.cursor = cursor;
+    });
+}
+
+function checkTotal() {
+    const x = sumBasket();
+    if (x >= 25) {
+        disableButton(false, 1, "pointer");
+    } else {
+        disableButton(true, 0.5, "not-allowed");
     }
 }
 

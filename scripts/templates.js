@@ -85,11 +85,11 @@ function renderTemplateTotal() {
             <p class="current-price">Zwischensumme: <span>${convertNumber(sumBasket())} €</span></p>
             <p class="shipping-fee">Lieferkosten: <span>${convertNumber(shippingFee)} €</span></p>
             <p class="total-price">Gesamt: <span>${convertNumber(sumBasket() + shippingFee)} €</span></p>
-            <h2 onclick="order()">Bezahlen ${convertNumber(sumBasket() + shippingFee)} €</h2>
+            <button onclick="order()" class="order-btn">Bezahlen ${convertNumber(sumBasket() + shippingFee)} €</button>
     `;
 }
 
 function renderBasketButton() {
     document.getElementById('toBasketBtn').innerHTML = `
-        <button class="to-basket-btn" onclick="showBasket()">Warenkorb ${convertNumber(sumBasket())} €</button>`
+        <button class="basket-btn" onclick="showBasket()">Warenkorb ${convertNumber(sumBasket())} €</button>`
 }

@@ -118,19 +118,22 @@ button:hover {
     background-color: var(--col-complementary);
 }
 
-.to-basket-btn {
+.order-btn,
+.basket-btn {
     position: relative;
     height: 50px;
-    width: 70%;
+    width: 280px;
     max-width: 340px;
     background-color: var(--col-complementary);
     border-radius: 100px;
     font-family: 'Roboto Slab';
     font-size: 24px;
     color: white;
+    margin-top: 15px;
 }
 
-.to-basket-btn:hover {
+.order-btn:hover,
+.basket-btn  {
     text-decoration: none;
     transform: scale(1.01);
     filter: drop-shadow(3px 6px 7px rgba(0, 0, 0, 0.3));

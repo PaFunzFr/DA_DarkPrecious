@@ -187,6 +187,13 @@ main {
     flex-direction: column;
 }
 
+.category-banner {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: left;
+}
+
 .products-container {
     display: flex;
     flex-direction: column;
@@ -629,6 +636,9 @@ main {
         max-height: 120px;
         max-width: 120px;
     }
+    .category-banner {
+        height: 200px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -650,6 +660,9 @@ main {
 
     .sidebar-section {
         width: 100%;
+    }
+    .category-banner {
+        display: none;
     }
 }
 
